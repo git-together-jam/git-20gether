@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////////////////////
+------------------------------ NAMING CONVENTIONS -----------------------------
+///////////////////////////////////////////////////////////////////////////////
+
+Resources
+	>> Sprites   : [Prefix "spr" ]  spr_spriteName
+	>> Tile Sets : [Prefix "tile"]  tile_tilesetName
+	>> Sounds    : [Prefix "snd" ]  snd_soundName
+	>> Paths     : [Prefix "path"]  path_pathName
+	>> Scripts   : [Prefix <none>]  name_of_script
+	>> Shaders   : [Prefix "shd" ]  shd_shaderName
+	>> Fonts     : [Prefix "fnt" ]  fnt_fontName
+	>> Timelines : [Prefix "tm"  ]  tm_timelineName
+	>> Objects   : [Prefix "obj" ]  obj_objectName
+	>> Rooms     : [Prefix "rm"  ]  rm_roomName
+
+Variables
+	>> instanceVariables
+	>> var _localVariables
+	>> global.GlobalVariables
+	>> EnumName.value
+	>> MACRO_NAME
