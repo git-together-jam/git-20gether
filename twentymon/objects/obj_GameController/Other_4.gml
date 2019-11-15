@@ -1,3 +1,3 @@
-/// @description Rebuild tile collisions
+/// @desc Rebuild tile collisions
 //grid_resize();
 tile_collisions_rebuild();

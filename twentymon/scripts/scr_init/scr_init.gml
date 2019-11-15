@@ -1,7 +1,8 @@
-/// @desc 
+gml_pragma("global", "scr_init()");
 
 randomize();
 
+// Twentymons data
 global.TwentymonList = ds_list_create();
 
 /*
