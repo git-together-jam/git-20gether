@@ -19,7 +19,7 @@ if (running) {
 
 // Get holding current
 
-if (holding >= HOLDING_MAX) {
+if (holding >= MAX_KEYS_HELD) {
 	image_speed = imgspd;	
 }
 
@@ -165,7 +165,7 @@ if (KEY_SPRINT && !moving) {
 
 if !(KEY_UP || KEY_DOWN || KEY_LEFT || KEY_RIGHT) {
 	holding = 0;
-} else if holding < HOLDING_MAX && (KEY_UP || KEY_DOWN || KEY_LEFT || KEY_RIGHT) {
+} else if holding < MAX_KEYS_HELD && (KEY_UP || KEY_DOWN || KEY_LEFT || KEY_RIGHT) {
 	holding++;
 } 
 
@@ -178,7 +178,7 @@ if (KEY_LEFT && !moving) {
 	dir = Facing.LEFT;
 	sprite_index = spr_player_left;
 	
-	if holding >= HOLDING_MAX {
+	if holding >= MAX_KEYS_HELD {
 		var _tile = tile_col_get_mask(x-_moveLeft,_yGrid);
 		if (_tile == Tile_Col.AIR or _tile == Tile_Col.ONE_LEFT)  {
 			target_x -= TILE_SIZE;
@@ -194,7 +194,7 @@ if (KEY_RIGHT && !moving) {
 	dir = Facing.RIGHT;
 	sprite_index = spr_player_right;
 	
-	if holding >= HOLDING_MAX {
+	if holding >= MAX_KEYS_HELD {
 		var _tile = tile_col_get_mask(x+_moveRight,_yGrid);
 		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_RIGHT)   {
 			target_x += TILE_SIZE;
@@ -210,7 +210,7 @@ if (KEY_UP && !moving) {
 	dir = Facing.UP;
 	sprite_index = spr_player_up;
 	
-	if holding >= HOLDING_MAX {
+	if holding >= MAX_KEYS_HELD {
 		var _tile = tile_col_get_mask(x,_yGrid-_moveUp)
 		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_UP)  {
 			target_y -= TILE_SIZE;
@@ -226,7 +226,7 @@ if (KEY_DOWN && !moving) {
 	dir = Facing.DOWN;
 	sprite_index = spr_player_down;
 	
-	if holding >= HOLDING_MAX {
+	if holding >= MAX_KEYS_HELD {
 		var _tile = tile_col_get_mask(x,_yGrid+_moveDown);
 		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_DOWN)  {
 			target_y += TILE_SIZE;
