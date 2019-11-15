@@ -4,8 +4,6 @@ randomize();
 
 global.TwentymonList = ds_list_create();
 
-room_goto(rm_test);
-
 /*
 	(Maybe?)
 	Create a map for each twentymon

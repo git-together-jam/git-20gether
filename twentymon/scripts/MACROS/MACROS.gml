@@ -2,11 +2,17 @@
 #macro mouse_y_gui device_mouse_y(0)
 
 // Tile Specific
-#macro tile_size 20
-#macro tile_move_spd 2 
+#macro TILE_SIZE 20
+#macro TILE_MOVE_SPD 1 
+#macro TILE_JUMP_SPD 4
+#macro JUMP_DIST_ANIM -6
 
 // Keys
-#macro KEY_UP keyboard_check(ord("W")) || keyboard_check(vk_up) 
-#macro KEY_DOWN keyboard_check(ord("S")) || keyboard_check(vk_down) 
-#macro KEY_LEFT keyboard_check(ord("A")) || keyboard_check(vk_left) 
-#macro KEY_RIGHT keyboard_check(ord("D")) || keyboard_check(vk_right) 
+#macro KEY_UP global.keyboard_up
+#macro KEY_DOWN global.keyboard_down
+#macro KEY_LEFT global.keyboard_left
+#macro KEY_RIGHT global.keyboard_right
+#macro KEY_JUMP global.keyboard_jump
+#macro KEY_SPRINT global.keyboard_sprint
+
+#macro HOLDING_MAX 8

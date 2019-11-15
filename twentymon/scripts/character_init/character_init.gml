@@ -1,9 +1,11 @@
+// Used for player mostly. But NPCs will also use this. Will intrroduce soon.
+
 target_x = x;
 target_y = y;
-dir = facing.DOWN;
+dir = Facing.DOWN;
 running = false;
 moving = false;
 jumping = false;
-jump_dist = 0;
+jump_Dist = 0;
 holding = 0;
-holding_max = game_get_speed(gamespeed_fps)/8;
+imgspd = 1;
