@@ -180,6 +180,7 @@
                 "id": "bf142cdf-b8df-48b6-9cf8-23871ab17ec7",
                 "resourcePath": "sprites\\spr_walls_floors\\spr_walls_floors.yy",
                 "resourceType": "GMSprite"
+            }
         },
         {
             "Key": "531a28bd-cb66-492b-8867-185d36b2721d",
@@ -196,6 +197,7 @@
                 "id": "ad2b095c-fe42-4686-b8e4-6d83963a2877",
                 "resourcePath": "scripts\\get_col\\get_col.yy",
                 "resourceType": "GMScript"
+            }
         },
         {
             "Key": "59c118ee-814b-4064-979d-7445e791d272",
@@ -283,6 +285,7 @@
                 "id": "feaf3251-7288-43c1-b187-d23d04d99254",
                 "resourcePath": "sprites\\spr_bushes_trees\\spr_bushes_trees.yy",
                 "resourceType": "GMSprite"
+            }
         },
         {
             "Key": "8427047f-9ef8-4c77-89f3-9c20623d07b6",
@@ -346,6 +349,7 @@
                 "id": "2228e776-bb64-46a9-9476-f6ae76946ba2",
                 "resourcePath": "sprites\\spr_indoor_clutter\\spr_indoor_clutter.yy",
                 "resourceType": "GMSprite"
+            }
         },
         {
             "Key": "a128950b-5063-4876-b4a6-b99dbd2ea6d1",
