@@ -11,6 +11,9 @@
 	e	GMS2Logo
 	f	OldGmLogo
 	g	$G
+	h	ctrl
+	i	shift
+	j	esc
 	r	Dpad
 	s	DpadRight
 	t	DpadLeft
@@ -27,23 +30,26 @@
 	is replaced with 'a'. These escapes are case insensitive.
 */
 
-var str = string_upper(argument0);
+var _str = string_upper(argument0);
 
-str = string_replace_all(str, "|HP",		"a");
-str = string_replace_all(str, "|XP",		"b");
-str = string_replace_all(str, "|PP",		"c");
-str = string_replace_all(str, "|XX",		"d");
-str = string_replace_all(str, "|GMS2LOGO",	"e");
-str = string_replace_all(str, "|OLDGMLOGO", "f");
-str = string_replace_all(str, "|$G",		"g");
-str = string_replace_all(str, "|DPAD",		"r");
-str = string_replace_all(str, "|DPADRIGHT", "s");
-str = string_replace_all(str, "|DPADLEFT",	"t");
-str = string_replace_all(str, "|DPADLEFT",	"u");
-str = string_replace_all(str, "|DPADDOWN",	"v");
-str = string_replace_all(str, "|A",			"w");
-str = string_replace_all(str, "|B",			"x");
-str = string_replace_all(str, "|X",			"y");
-str = string_replace_all(str, "|Z",			"z");
+_str = string_replace_all(_str, "|HP",			"a");
+_str = string_replace_all(_str, "|XP",			"b");
+_str = string_replace_all(_str, "|PP",			"c");
+_str = string_replace_all(_str, "|XX",			"d");
+_str = string_replace_all(_str, "|GMS2LOGO",	"e");
+_str = string_replace_all(_str, "|OLDGMLOGO",	"f");
+_str = string_replace_all(_str, "|$G",			"g");
+_str = string_replace_all(_str, "|CTRL",		"h");
+_str = string_replace_all(_str, "|SHIFT",		"i");
+_str = string_replace_all(_str, "|ESC",			"j");
+_str = string_replace_all(_str, "|DPAD",		"r");
+_str = string_replace_all(_str, "|DPADRIGHT",	"s");
+_str = string_replace_all(_str, "|DPADLEFT",	"t");
+_str = string_replace_all(_str, "|DPADLEFT",	"u");
+_str = string_replace_all(_str, "|DPADDOWN",	"v");
+_str = string_replace_all(_str, "|A",			"w");
+_str = string_replace_all(_str, "|B",			"x");
+_str = string_replace_all(_str, "|X",			"y");
+_str = string_replace_all(_str, "|Z",			"z");
 
-return str;
+return _str;

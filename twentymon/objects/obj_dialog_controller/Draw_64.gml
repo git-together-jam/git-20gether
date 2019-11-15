@@ -24,9 +24,26 @@ for(var i = 0; i < line_display_count; i++) {
 	draw_y += line_height;
 }
 
+if(show_prompt) {
+	var prompt_x = x + width - prompts_width;
+	var prompt_y = y - line_height * prompts_count;
+	draw_set_color(c_white);
+	draw_rectangle(prompt_x, prompt_y, x + width, y, false);
+	draw_set_color(c_black);
+	draw_rectangle(prompt_x, prompt_y, x + width, y, true);
+	var text_y = prompt_y;
+	for(var i = 0; i < prompts_count; i++) {
+		var option = prompts[i];
+		draw_text(prompt_x + padding, text_y, option);
+		text_y += line_height;
+	}
+	
+	draw_sprite(spr_dialog_cursor, 2, prompt_x, prompt_y + (cursor_index + 0.5) * line_height);
+}
+
 
 // draw the dialog cursor
-var cursor_index = line_index + line_display_count < lines_count ? 0 : 1;
+var cursor_subimage = line_index + line_display_count < lines_count ? 0 : 1;
 var cursor_x = draw_x + width - 2 * padding - sprite_get_width(spr_dialog_cursor);
 var cursor_y = y + height - padding;
-draw_sprite(spr_dialog_cursor, cursor_index, cursor_x, cursor_y);
+draw_sprite(spr_dialog_cursor, cursor_subimage, cursor_x, cursor_y);
