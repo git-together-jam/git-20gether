@@ -10,4 +10,5 @@ with(obj_dialog_controller) {
 	line_index = 0;
 	line_display_count = floor(height / line_height);
 	last_page_offset = lines_count % line_display_count;
+	visible = true;
 }
