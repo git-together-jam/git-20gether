@@ -7,6 +7,11 @@ if(isbouncing){
 	    y = boardline;
 	    vsp *= -0.8;
 		hsp *= 0.5;
+		if(x > room_width-50){
+			hsp = -3;	
+		}else if(x < 50){
+			hsp = 3;	
+		}
 	} else {
 	    vsp += grav;
 	}
@@ -17,6 +22,9 @@ if(abs(vsp) < 1 and y > boardline-6){
 
 y+=vsp;
 x+=hsp;
+
+image_speed = approach(image_speed, 0, .01)
+numspeed = image_speed / 15;
 
 if (mynum + numspeed > 20){
 	mynum += -20 + numspeed;	

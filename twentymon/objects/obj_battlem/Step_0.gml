@@ -21,6 +21,7 @@ switch(objstate){
 		if(keyboard_check_pressed(vk_anykey)){
 			switch(keyboard_lastkey){
 				case ord("Z"):
+				objstate = 2;
 					instance_create_depth(room_width+50,160,-50,obj_superdice);
 				break;
 				
@@ -28,7 +29,21 @@ switch(objstate){
 		}
 	break;
 	case 2: // Dice rollling
-	
+		if(keyboard_check_pressed(vk_anykey)){
+		switch(keyboard_lastkey){
+			case ord("Z"):
+				with(obj_superdice){
+					image_speed = choose(-2,2);
+					vsp-=5;
+					hsp=irandom_range(-3,3);
+				}
+			break;
+			}
+		}
+		if(!obj_superdice.isbouncing){
+			// Continue here. Set the state to 3 or something. IDK. IDC.
+		}
+		
 	break;
 	
 	

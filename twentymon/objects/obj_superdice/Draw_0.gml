@@ -2,15 +2,14 @@
 // You can write your code in this editor
 
 // HALT visitor. you are entering the LANDS OF SHADOWDRAW. enjoy your stay.
-/*
+
 draw_set_color(c_black);
 draw_set_alpha(0.2);
 
-draw_circle(x,boardline,10,false);
+draw_circle(x,boardline+10,10,false);
 
 draw_set_alpha(1);
 draw_set_color(c_white);
-*/
 
 draw_self();
 draw_text(0,0,y);
