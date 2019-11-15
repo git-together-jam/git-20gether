@@ -1,8 +1,8 @@
 {
-    "id": "41405093-1785-402f-a371-444e91e755c7",
+    "id": "2b6cd9cb-2f92-4d59-a08e-db9e809ff703",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tike_misc",
+    "name": "character_init",
     "IsCompatibility": false,
     "IsDnD": false
 }

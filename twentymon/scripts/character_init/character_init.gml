@@ -1,0 +1,9 @@
+target_x = x;
+target_y = y;
+dir = facing.DOWN;
+running = false;
+moving = false;
+jumping = false;
+jump_dist = 0;
+holding = 0;
+holding_max = game_get_speed(gamespeed_fps)/8;
