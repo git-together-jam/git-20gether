@@ -38,7 +38,7 @@ if(show_prompt) {
 		text_y += line_height;
 	}
 	
-	draw_sprite(spr_dialog_cursor, 2, prompt_x, prompt_y + (cursor_index + 0.5) * line_height);
+	draw_sprite(spr_dialog_cursor, 2, prompt_x + 5, prompt_y + (cursor_index + 0.5) * line_height);
 }
 
 
