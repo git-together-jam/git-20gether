@@ -26,7 +26,7 @@ for(var i = 0; i < line_display_count; i++) {
 
 
 // draw the dialog cursor
-var cursor_index = line_index + last_page_offset + line_display_count <= lines_count && last_page_offset != 0 ? 0 : 1;
+var cursor_index = line_index + line_display_count < lines_count ? 0 : 1;
 var cursor_x = draw_x + width - 2 * padding - sprite_get_width(spr_dialog_cursor);
 var cursor_y = y + height - padding;
 draw_sprite(spr_dialog_cursor, cursor_index, cursor_x, cursor_y);
