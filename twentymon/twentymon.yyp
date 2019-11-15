@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "010701f6-0432-413a-917a-29ad23ff3e3c",
+            "Value": {
+                "id": "78e68a27-0bfe-4549-9830-8ecdafdac34a",
+                "resourcePath": "rooms\\rm_test\\rm_test.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "0114b5e8-119f-4c0c-94e8-17e70fbd16a5",
             "Value": {
                 "id": "e6cd6c89-65f9-42dc-8afb-ec30e99c693e",
@@ -119,6 +127,14 @@
             }
         },
         {
+            "Key": "2b5e8a00-521f-4813-afaa-540b745c9c5b",
+            "Value": {
+                "id": "db041149-86f2-4d25-b7d4-991111798ffe",
+                "resourcePath": "tilesets\\tl_walls_floor\\tl_walls_floor.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "2f324422-c2b2-435e-83d0-05a3b40364ca",
             "Value": {
                 "id": "a88a60a7-6678-4238-bda9-b621ef6ad63a",
@@ -135,11 +151,27 @@
             }
         },
         {
+            "Key": "52dbbbde-cf4f-46b7-9a69-2a2ed022afb2",
+            "Value": {
+                "id": "bf142cdf-b8df-48b6-9cf8-23871ab17ec7",
+                "resourcePath": "sprites\\spr_walls_floors\\spr_walls_floors.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "531a28bd-cb66-492b-8867-185d36b2721d",
             "Value": {
                 "id": "dbcbff2a-3eac-4800-b761-7dae2e649716",
                 "resourcePath": "views\\531a28bd-cb66-492b-8867-185d36b2721d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "59c118ee-814b-4064-979d-7445e791d272",
+            "Value": {
+                "id": "eb55757f-50c4-4269-84a1-ed69472d479a",
+                "resourcePath": "tilesets\\tl_bushes_strees\\tl_bushes_strees.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -207,6 +239,14 @@
             }
         },
         {
+            "Key": "7c43e522-9aa5-4969-8713-fb981e734e09",
+            "Value": {
+                "id": "feaf3251-7288-43c1-b187-d23d04d99254",
+                "resourcePath": "sprites\\spr_bushes_trees\\spr_bushes_trees.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8ba24045-4acd-4c6f-a556-bd315514a3b2",
             "Value": {
                 "id": "9ad9112d-6377-4148-9a77-522fd2bdf255",
@@ -244,6 +284,14 @@
                 "id": "9e86ca88-4c96-4594-af58-766620d3b1d0",
                 "resourcePath": "rooms\\rm_parent\\rm_parent.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "a10e6a7a-f339-4b66-bc2b-ae403888a9fd",
+            "Value": {
+                "id": "2228e776-bb64-46a9-9476-f6ae76946ba2",
+                "resourcePath": "sprites\\spr_indoor_clutter\\spr_indoor_clutter.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -319,6 +367,14 @@
             }
         },
         {
+            "Key": "c67f1fb6-49c3-424a-9cad-e23d83aa969f",
+            "Value": {
+                "id": "361a1c47-de01-46a6-88c2-b33d83327c1f",
+                "resourcePath": "views\\c67f1fb6-49c3-424a-9cad-e23d83aa969f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
             "Value": {
                 "id": "2a888a01-5003-468e-a36e-d165019c7f9e",
@@ -348,6 +404,14 @@
                 "id": "c645a7e5-5473-4206-8aaf-ad99db64eaa6",
                 "resourcePath": "scripts\\draw_text_col\\draw_text_col.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "dc5054b1-c346-49e6-be82-610b4f9d9421",
+            "Value": {
+                "id": "0f3eda69-7bdb-43e0-b613-274af2e5b69e",
+                "resourcePath": "tilesets\\tl_indoor_clutter\\tl_indoor_clutter.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
