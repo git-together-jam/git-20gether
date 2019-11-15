@@ -1,8 +1,8 @@
 {
-    "id": "ede7cf2e-79c2-4e00-b4d4-aa4842e1fd6d",
+    "id": "0a04e621-ce17-4351-b846-a20de2f978c9",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "ENUMS",
+    "name": "scr_init",
     "IsCompatibility": false,
     "IsDnD": false
 }
