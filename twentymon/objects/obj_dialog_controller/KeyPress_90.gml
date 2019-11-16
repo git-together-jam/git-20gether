@@ -20,5 +20,7 @@ if(show_prompt) {
 		// clean up dialog
 		visible = false;
 		show_prompt = false;
+		ready = false;
+		alarm[0] = 5;
 	}
 }

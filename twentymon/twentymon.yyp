@@ -431,6 +431,14 @@
             }
         },
         {
+            "Key": "882a89d6-722e-4c20-a709-e65338a81053",
+            "Value": {
+                "id": "de74691a-e6da-4572-9cdb-4d3fbbea242e",
+                "resourcePath": "scripts\/dialog_inactive\/dialog_inactive.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "8ba24045-4acd-4c6f-a556-bd315514a3b2",
             "Value": {
                 "id": "9ad9112d-6377-4148-9a77-522fd2bdf255",
@@ -468,6 +476,14 @@
                 "id": "eee94ac9-92e6-4400-9303-3a6b3c430424",
                 "resourcePath": "rooms\/rm_battle\/rm_battle.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "99da9c47-99fd-4d7d-b4c5-99945711619c",
+            "Value": {
+                "id": "038db66a-b6a7-4728-874f-d64fc440ac17",
+                "resourcePath": "scripts\/dialog_init\/dialog_init.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -687,6 +703,14 @@
             }
         },
         {
+            "Key": "e94efe3b-c9f0-43eb-b3ef-0921c6e02aac",
+            "Value": {
+                "id": "793050fc-f949-4d9f-a215-062c508648da",
+                "resourcePath": "scripts\/project_direction\/project_direction.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ee9dc4c0-02f7-44de-83e7-1d5e597b8341",
             "Value": {
                 "id": "6b1e5922-1bc1-4b3b-8963-cebacb3702d3",
@@ -749,6 +773,14 @@
                 "resourcePath": "scripts\/wrap\/wrap.yy",
                 "resourceType": "GMScript"
             }
+        },
+        {
+            "Key": "fe7f460f-77e7-411a-a817-e0b80f154d46",
+            "Value": {
+                "id": "950bf105-08ee-4fc1-82f6-9e3dd964b43d",
+                "resourcePath": "objects\/obj_interactable\/obj_interactable.yy",
+                "resourceType": "GMObject"
+            }
         }
     ],
     "script_order": [
@@ -768,11 +800,14 @@
         "f2585771-ad77-4501-8f4a-c5ec0fe3a91d",
         "c0b1c8b2-9e7c-4986-aca9-026bc3ad8beb",
         "09311b78-8101-49a4-a52b-1cfdee512947",
+        "e94efe3b-c9f0-43eb-b3ef-0921c6e02aac",
         "4fe819d3-ee3f-4410-9386-15c09a3899b2",
         "95b4650a-a8e9-4d6d-a5f5-864de06269f5",
         "452fbd2c-d4da-4a88-98eb-0880f24fa106",
         "ee9dc4c0-02f7-44de-83e7-1d5e597b8341",
         "7ec576fd-b810-4b70-8a2e-ab483f73a379",
+        "99da9c47-99fd-4d7d-b4c5-99945711619c",
+        "882a89d6-722e-4c20-a709-e65338a81053",
         "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58"
     ],
     "tutorial": ""

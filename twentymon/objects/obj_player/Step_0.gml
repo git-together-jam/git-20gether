@@ -22,11 +22,12 @@ if (running) {
 if (holding >= MAX_KEYS_HELD) {
 	image_speed = imgspd;	
 }
-
-if (target_x > x) { x += _mvspd;} // Right
-if (target_x < x) { x -= _mvspd;} // Left
-if (target_y > y) { y += _mvspd;} // Down
-if (target_y < y) { y -= _mvspd;} // Up
+if(dialog_inactive()) {
+	if (target_x > x) { x += _mvspd;} // Right
+	if (target_x < x) { x -= _mvspd;} // Left
+	if (target_y > y) { y += _mvspd;} // Down
+	if (target_y < y) { y -= _mvspd;} // Up
+}
 
 // Jumping specific animation
 

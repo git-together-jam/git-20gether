@@ -8,10 +8,12 @@ var _dirLeft = dir == Facing.LEFT;
 var _dirRight = dir == Facing.RIGHT;
 var _mvspd = TILE_MOVE_SPD;
 
-if (target_x > x) { x += _mvspd;} // Right
-if (target_x < x) { x -= _mvspd;} // Left
-if (target_y > y) { y += _mvspd;} // Down
-if (target_y < y) { y -= _mvspd;} // Up
+if(dialog_inactive()) { // don't move while dialog is happening
+	if (target_x > x) { x += _mvspd;} // Right
+	if (target_x < x) { x -= _mvspd;} // Left
+	if (target_y > y) { y += _mvspd;} // Down
+	if (target_y < y) { y -= _mvspd;} // Up
+}
 
 
 // Stops character at position when reach goal
@@ -31,53 +33,6 @@ var _yGrid = y - TILE_SIZE;
 
 #region // Moving
 
-/*// LEFT
-if (_dirLeft && !moving) {
-	
-	var _tile = tile_col_get_mask(x - _moveLeft, _yGrid);
-	if (_tile == Tile_Col.AIR or _tile == Tile_Col.ONE_LEFT)  {
-		target_x -= TILE_SIZE;
-		moving = true;
-	} else {
-		dir = opposite_direction(dir);
-	}
-}
-
-// RIGHT
-else if (_dirRight && !moving) {
-	
-	var _tile = tile_col_get_mask(x + _moveRight,_yGrid);
-	if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_RIGHT)   {
-		target_x += TILE_SIZE;
-		moving = true;
-	} else {
-		dir = opposite_direction(dir);
-	}
-}
-
-// UP
-else if (_dirUp && !moving) {
-	
-	var _tile = tile_col_get_mask(x, _yGrid - _moveUp)
-	if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_UP)  {
-		target_y -= TILE_SIZE;
-		moving = true;
-	} else {
-		dir = opposite_direction(dir);
-	}
-}
-
-// DOWN
-else if (_dirDown && !moving) {
-
-	var _tile = tile_col_get_mask(x, _yGrid + _moveDown);
-	if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_DOWN)  {
-		target_y += TILE_SIZE;
-		moving = true;
-	} else {
-		dir = opposite_direction(dir);
-	}
-}*/
 if(!moving) {
 	var _dx = 0;
 	var _dy = 0;
