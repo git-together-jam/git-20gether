@@ -13,7 +13,7 @@ _mon[? "level"] = _level;
 ds_map_add_map(_mon, "stats", _stats);
 
 // Stats
-ds_map_copy(_stats, ds_get_nested(global.Twentymons, _type, "stats", _level - 1));
+ds_map_copy(_stats, ds_get_nested(global.Twentymons, real(_type), "stats", _level - 1));
 _stats[? "hp"] = _stats[? "max_hp"];
 _stats[? "stamina"] = _stats[? "max_stamina"];
 
