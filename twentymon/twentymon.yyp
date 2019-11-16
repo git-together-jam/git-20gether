@@ -175,11 +175,27 @@
             }
         },
         {
+            "Key": "3bc924bd-38cb-4c2e-8a7f-098d598339ae",
+            "Value": {
+                "id": "ea99fb9b-7932-415d-9660-7605d4b7e2f9",
+                "resourcePath": "objects\\obj_cursor\\obj_cursor.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "3e4c72df-a150-465f-aac6-9afb7929c7d2",
             "Value": {
                 "id": "17d5d3f7-879e-4538-941b-8fa7b1429d61",
                 "resourcePath": "scripts\\check_inputs\\check_inputs.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "42051df7-ca02-ad31-a88c-898ce6f17297",
+            "Value": {
+                "id": "66f84b48-6115-45ec-8a02-58848ebd5b3b",
+                "resourcePath": "objects\\obj_menu\\obj_menu.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -327,6 +343,14 @@
             }
         },
         {
+            "Key": "9022099c-d4f9-4d1b-a4ff-76212dacde97",
+            "Value": {
+                "id": "53174c59-2425-4bd6-a542-78c1f3359109",
+                "resourcePath": "datafiles_yy\\Monster_Twenty.otf.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "93566aad-c3b3-48a9-8fa7-9c5ee19f74ac",
             "Value": {
                 "id": "ea1f4f98-25d8-44e9-b571-be8745470c2a",
@@ -439,6 +463,14 @@
             }
         },
         {
+            "Key": "b1143f42-d75e-409a-8ba6-3087b7bb9916",
+            "Value": {
+                "id": "c6d631e6-02ee-4ca4-bddb-ed0d7d070d84",
+                "resourcePath": "views\\b1143f42-d75e-409a-8ba6-3087b7bb9916.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "b15cdcee-81c5-45d4-b67b-f743e3aa2a9a",
             "Value": {
                 "id": "4993dacb-cec0-432d-b0ab-6ee40dbcb229",
@@ -519,6 +551,14 @@
             }
         },
         {
+            "Key": "d533a54d-a451-4b2b-a31c-853473a878f7",
+            "Value": {
+                "id": "de6dd675-efb1-4c36-9e7c-c6685753f4f2",
+                "resourcePath": "views\\d533a54d-a451-4b2b-a31c-853473a878f7.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "d54f4bd6-f8e3-4606-9935-4924a1cbab2e",
             "Value": {
                 "id": "5f422a76-c83d-4acf-9ef5-7ca17773003a",
@@ -564,6 +604,14 @@
                 "id": "3d18d074-81e8-4eea-8d40-32600c2faf8c",
                 "resourcePath": "options\\android\\options_android.yy",
                 "resourceType": "GMAndroidOptions"
+            }
+        },
+        {
+            "Key": "f059d93b-6279-44f5-89f9-07daa7420b61",
+            "Value": {
+                "id": "ca393bdd-341c-4f91-b761-41fddf651382",
+                "resourcePath": "sprites\\spr_cursor\\spr_cursor.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -618,6 +666,11 @@
     "script_order": [
         "66679458-c089-4b41-b548-e314ac07649a",
         "0a04e621-ce17-4351-b846-a20de2f978c9",
+        "661dc74c-2122-4ae7-892d-3f5f060e82f5",
+        "6de69938-fbd9-4870-b5ae-99b8145706b2",
+        "3e4c72df-a150-465f-aac6-9afb7929c7d2",
+        "2b6cd9cb-2f92-4d59-a08e-db9e809ff703",
+        "0510479b-af94-47db-95cf-5cf06215e700",
         "f7ff909d-9a70-49d9-91a8-bb45e1628f47",
         "d9df380d-5b7b-4e92-8a58-e5d83fed8240",
         "0114b5e8-119f-4c0c-94e8-17e70fbd16a5",
@@ -625,12 +678,7 @@
         "c3c4975f-42d2-4f76-b955-1a753d6c014a",
         "a41991c0-055f-40f2-ba87-b20a6a64dae4",
         "f2585771-ad77-4501-8f4a-c5ec0fe3a91d",
-        "c0b1c8b2-9e7c-4986-aca9-026bc3ad8beb",
-        "0510479b-af94-47db-95cf-5cf06215e700",
-        "661dc74c-2122-4ae7-892d-3f5f060e82f5",
-        "6de69938-fbd9-4870-b5ae-99b8145706b2",
-        "2b6cd9cb-2f92-4d59-a08e-db9e809ff703",
-        "3e4c72df-a150-465f-aac6-9afb7929c7d2"
+        "c0b1c8b2-9e7c-4986-aca9-026bc3ad8beb"
     ],
     "tutorial": ""
 }

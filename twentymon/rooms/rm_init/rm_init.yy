@@ -2,7 +2,7 @@
 {
     "name": "rm_init",
     "id": "f607d9f9-c121-40f4-9ff6-4cbec17368f2",
-    "creationCodeFile": "",
+    "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,
     "inheritCreationOrder": false,
     "inheritLayers": false,
