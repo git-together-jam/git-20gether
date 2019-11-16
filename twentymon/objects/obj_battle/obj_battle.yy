@@ -2,7 +2,7 @@
     "id": "4795424c-ff86-47a9-bdca-3d99e87d64e9",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_battlem",
+    "name": "obj_battle",
     "eventList": [
         {
             "id": "831bcaf9-d2e4-4acc-9bcc-54c7f2782084",
@@ -25,7 +25,7 @@
             "m_owner": "4795424c-ff86-47a9-bdca-3d99e87d64e9"
         },
         {
-            "id": "1b413e15-25cc-4e81-9a2a-50852b9aac21",
+            "id": "7ba8a477-7025-454a-a7f4-3983e807a545",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,

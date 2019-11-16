@@ -34,3 +34,11 @@ enum Facing {
 	UP,
 	DOWN
 }
+
+// Battle
+enum BattleStates {
+	start,
+	playerTurn,
+	attack,
+	dieRoll
+}
