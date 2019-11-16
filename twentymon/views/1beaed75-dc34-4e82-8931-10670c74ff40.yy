@@ -9,7 +9,7 @@
         "712173b0-359e-448c-8b60-bdbc1ce7d9f8"
     ],
     "filterType": "GMObject",
-    "folderName": "Jacob's evil folder",
+    "folderName": "Battle",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
