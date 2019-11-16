@@ -1,3 +1,4 @@
+/// @desc Confirm selection
 switch (menuItems[currentIndex]) {
 case "START":
     room_goto(rm_test);
