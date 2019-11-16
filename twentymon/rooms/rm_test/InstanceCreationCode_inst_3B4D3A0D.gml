@@ -1,0 +1,1 @@
+dir = Facing.LEFT;

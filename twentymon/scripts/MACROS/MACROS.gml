@@ -42,3 +42,10 @@ enum BattleStates {
 	attack,
 	dieRoll
 }
+
+enum NpcBehavior {
+	stationary,
+	spin,
+	wander,
+	linewalk
+}

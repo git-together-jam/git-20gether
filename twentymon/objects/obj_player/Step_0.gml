@@ -169,70 +169,46 @@ if !(KEY_UP || KEY_DOWN || KEY_LEFT || KEY_RIGHT) {
 	holding++;
 } 
 
-// Movement code. Pretty spaghetti like atm.
+// Movement code. 
 
-// LEFT
-if (KEY_LEFT && !moving) {
+if(!moving) {
+	var _dx = 0;
+	var _dy = 0;
+	var _oneWayTile;
+	if(KEY_LEFT) {
+		dir = Facing.LEFT;
+		sprite_index = spr_player_left;
+		_dx = -_moveLeft;
+		_oneWayTile = Tile_Col.ONE_LEFT;
+	}
+	else if(KEY_RIGHT) {
+		dir = Facing.RIGHT;
+		sprite_index = spr_player_right;
+		_dx = _moveRight;
+		_oneWayTile = Tile_Col.ONE_RIGHT;
+	}
+	else if(KEY_UP) {
+		dir = Facing.UP;
+		sprite_index = spr_player_up;
+		_dy = -_moveUp;
+		_oneWayTile = Tile_Col.ONE_UP;
+	}
+	else if(KEY_DOWN) {
+		dir = Facing.DOWN;
+		sprite_index = spr_player_down;
+		_dy = _moveDown;
+		_oneWayTile = Tile_Col.ONE_DOWN;
+	}
 	
-	// Change facing direction (mostly for jumping) && assign sprite.
-	dir = Facing.LEFT;
-	sprite_index = spr_player_left;
-	
-	if holding >= MAX_KEYS_HELD {
-		var _tile = tile_col_get_mask(x-_moveLeft,_yGrid);
-		if (_tile == Tile_Col.AIR or _tile == Tile_Col.ONE_LEFT)  {
-			target_x -= TILE_SIZE;
+	if(holding >= MAX_KEYS_HELD) {
+		var _tile = tile_col_get_mask(x + _dx, _yGrid + _dy);
+		if ((_tile == Tile_Col.AIR || _tile == _oneWayTile) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
+			target_y += sign(_dy) * TILE_SIZE;
+			target_x += sign(_dx) * TILE_SIZE;
 			moving = true;
 		}
 	}
 }
 
-// RIGHT
-if (KEY_RIGHT && !moving) {
-	
-	// Change facing direction (mostly for jumping) && assign sprite.
-	dir = Facing.RIGHT;
-	sprite_index = spr_player_right;
-	
-	if holding >= MAX_KEYS_HELD {
-		var _tile = tile_col_get_mask(x+_moveRight,_yGrid);
-		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_RIGHT)   {
-			target_x += TILE_SIZE;
-			moving = true;
-		}
-	}
-}
-
-// UP
-if (KEY_UP && !moving) {
-	
-	// Change facing direction (mostly for jumping) && assign sprite.
-	dir = Facing.UP;
-	sprite_index = spr_player_up;
-	
-	if holding >= MAX_KEYS_HELD {
-		var _tile = tile_col_get_mask(x,_yGrid-_moveUp)
-		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_UP)  {
-			target_y -= TILE_SIZE;
-			moving = true;
-		}
-	}
-}
-
-// DOWN
-if (KEY_DOWN && !moving) {
-	
-	// Change facing direction (mostly for jumping) && assign sprite.
-	dir = Facing.DOWN;
-	sprite_index = spr_player_down;
-	
-	if holding >= MAX_KEYS_HELD {
-		var _tile = tile_col_get_mask(x,_yGrid+_moveDown);
-		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_DOWN)  {
-			target_y += TILE_SIZE;
-			moving = true;
-		}
-	}
-}
 #endregion
 #endregion
