@@ -138,7 +138,7 @@
             "Key": "1beaed75-dc34-4e82-8931-10670c74ff40",
             "Value": {
                 "id": "3c2615bb-cc8a-44a1-822e-f17f8f878c3c",
-                "resourcePath": "views\\1beaed75-dc34-4e82-8931-10670c74ff40.yy",
+                "resourcePath": "views\/1beaed75-dc34-4e82-8931-10670c74ff40.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -218,7 +218,7 @@
             "Key": "4795424c-ff86-47a9-bdca-3d99e87d64e9",
             "Value": {
                 "id": "fab072cb-48b0-43d9-ac22-d9f763fb6be0",
-                "resourcePath": "objects\\obj_battle\\obj_battle.yy",
+                "resourcePath": "objects\/obj_battle\/obj_battle.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -226,7 +226,7 @@
             "Key": "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
             "Value": {
                 "id": "9f15851a-9f3f-4126-a9a6-4220f4f590f7",
-                "resourcePath": "scripts\\change_battle_state\\change_battle_state.yy",
+                "resourcePath": "scripts\/change_battle_state\/change_battle_state.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -346,7 +346,7 @@
             "Key": "712173b0-359e-448c-8b60-bdbc1ce7d9f8",
             "Value": {
                 "id": "62cda01c-f80f-4ec5-9270-fc20c5a07b84",
-                "resourcePath": "objects\\obj_d20\\obj_d20.yy",
+                "resourcePath": "objects\/obj_d20\/obj_d20.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -391,6 +391,14 @@
             }
         },
         {
+            "Key": "83859764-d8b8-4004-adcb-8fa4879a0b8e",
+            "Value": {
+                "id": "9ccfd3f6-375f-4d80-977a-765fd1ddce2f",
+                "resourcePath": "rooms\/rm_battle\/rm_battle.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "8427047f-9ef8-4c77-89f3-9c20623d07b6",
             "Value": {
                 "id": "9a534396-1162-47ea-a49f-9786e97aa8c1",
@@ -402,7 +410,7 @@
             "Key": "848ae94c-7d18-4eb0-8dbd-eaccc5745b3d",
             "Value": {
                 "id": "b47b697d-9a12-415b-bde7-a56221a37c7a",
-                "resourcePath": "sprites\\spr_debog\\spr_debog.yy",
+                "resourcePath": "sprites\/spr_debog\/spr_debog.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -420,14 +428,6 @@
                 "id": "ea1f4f98-25d8-44e9-b571-be8745470c2a",
                 "resourcePath": "options\/tvos\/options_tvos.yy",
                 "resourceType": "GMtvOSOptions"
-            }
-        },
-        {
-            "Key": "9445a655-750a-4d6e-9cc9-3f1888772b71",
-            "Value": {
-                "id": "3cbb1f46-3947-43f2-8765-00ee4a40095a",
-                "resourcePath": "objects\/obj_d20\/obj_d20.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -498,7 +498,7 @@
             "Key": "a615b615-b3a1-4968-b847-f2765041dcaa",
             "Value": {
                 "id": "603f6310-a0d1-4b79-a24a-8ec70effd475",
-                "resourcePath": "views\\a615b615-b3a1-4968-b847-f2765041dcaa.yy",
+                "resourcePath": "views\/a615b615-b3a1-4968-b847-f2765041dcaa.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -679,14 +679,6 @@
             }
         },
         {
-            "Key": "e6e19be2-6715-4724-9603-f97905590d8c",
-            "Value": {
-                "id": "653e7921-eb45-4fc8-b0e2-626d6b67fba9",
-                "resourcePath": "views\\e6e19be2-6715-4724-9603-f97905590d8c.yy",
-                "resourceType": "GMFolder"
-            }
-        },
-        {
             "Key": "f2585771-ad77-4501-8f4a-c5ec0fe3a91d",
             "Value": {
                 "id": "cc86186c-1e2e-4198-9aa0-763db7aaf510",
@@ -706,7 +698,7 @@
             "Key": "f427043c-9742-4cc1-931d-f3fa8dd39ef6",
             "Value": {
                 "id": "2114b8f9-5d90-446d-9309-8e0d3d425337",
-                "resourcePath": "objects\\obj_goodpoke\\obj_goodpoke.yy",
+                "resourcePath": "objects\/obj_goodpoke\/obj_goodpoke.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -763,7 +755,8 @@
         "95b4650a-a8e9-4d6d-a5f5-864de06269f5",
         "452fbd2c-d4da-4a88-98eb-0880f24fa106",
         "ee9dc4c0-02f7-44de-83e7-1d5e597b8341",
-        "7ec576fd-b810-4b70-8a2e-ab483f73a379"
+        "7ec576fd-b810-4b70-8a2e-ab483f73a379",
+        "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58"
     ],
     "tutorial": ""
 }
