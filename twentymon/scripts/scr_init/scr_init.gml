@@ -3,12 +3,29 @@ gml_pragma("global", "scr_init()");
 randomize();
 
 // Twentymons data
-global.TwentymonList = ds_list_create();
+enum TwentymonType {
+	test,
+	test2
+}
 
-/*
-	(Maybe?)
-	Create a map for each twentymon
-	Add the map to the global.TwentymonList
-	I like to store the position of the twentymon in the list
-		to use it as an ID
-*/
+// Test
+var _testMap = ds_map_create();
+
+_testMap[? "hp"] = 20;
+_testMap[? "stamina"] = 20;
+_testMap[? "strength"] = 5;
+_testMap[? "defense"] = 10;
+_testMap[? "agility"] = 10;
+
+// Test2
+var _test2Map = ds_map_create();
+
+_test2Map[? "hp"] = 20;
+_test2Map[? "stamina"] = 30;
+_test2Map[? "strength"] = 5;
+_test2Map[? "defense"] = 5;
+_test2Map[? "agility"] = 20;
+
+global.TwentymonList = ds_list_create();
+ds_list_add_map(global.TwentymonList, _testMap);
+ds_list_add_map(global.TwentymonList, _test2Map);
