@@ -1,18 +1,16 @@
 /// @desc States
 if (timer < 90000000000000000) timer++;
 
-//goodpoke.image_yscale = sin(timer/15)*0.1 + 1;
-//badpoke.image_yscale = sin(timer/15)*0.1 + 1;
-
 switch(battleState) {
 	case BattleStates.start: #region Start
 		// Animate the twentymons moving to the battle
-		if (goodpoke.x < 80) {
-			goodpoke.x += twentymonSpeed;
-			badpoke.x = room_width - goodpoke.x;
-		} else {
-			change_battle_state(BattleStates.playerTurn);
-		}
+		//if (goodpoke.x < 80) {
+		//	goodpoke.x += twentymonSpeed;
+		//	badpoke.x = room_width - goodpoke.x;
+		//} else {
+		//	change_battle_state(BattleStates.playerTurn);
+		//}
+		change_battle_state(BattleStates.playerTurn);
 		break;
 		#endregion
 	case BattleStates.playerTurn: #region Player turn

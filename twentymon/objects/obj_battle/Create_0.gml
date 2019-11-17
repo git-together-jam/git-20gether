@@ -11,3 +11,8 @@ previousState = -1;
 nextState = -1; // for die rolls
 
 dieResult = -1; // for die rolls
+
+twentymon_queue = ds_priority_create();
+
+enemies = [];
+fighters = [];
