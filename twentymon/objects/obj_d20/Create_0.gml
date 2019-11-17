@@ -5,6 +5,7 @@ number = roll_d20();
 image_index = random_range(0, image_number);
 
 isRolling = true;
+playerControlled = false;
 
 boardline = obj_battle.boardline;
 grav = 0.4;
@@ -14,4 +15,6 @@ hsp = -5.5;
 image_speed = 3;
 numspeed = image_speed / 20;
 
-shouldBump = false; // for table bumps;
+// Table bumps
+canBump = true;
+shouldBump = false;

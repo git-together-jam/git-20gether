@@ -1,16 +1,28 @@
 /// @desc Init battle
 
-timer = 0;
-
+// Positioning
 battleY = 240;
 boardline = 300;
-twentymonSpeed = 2; // animation speed
 
-goodpoke = instance_create_layer(-100, battleY, "Battle_Field", obj_goodpoke);
-badpoke = instance_create_layer(room_width + 100, battleY, "Battle_Field", obj_goodpoke);
-
+// States
 battleState = BattleStates.start;
 previousState = -1;
-nextState = -1; // for die rolls
 
-dieResult = -1; // for die rolls
+// Die rolls
+dieResult = -1;
+attackRoll = -1;
+defenseRoll = -1;
+nextState = -1;
+
+// Priority queues for turn order
+twentymon_queue = ds_priority_create();
+twentymon_buffer = ds_priority_create();
+
+// Actions
+currentMon = noone;
+targetMon = noone;
+targetAction = -1;
+waitTimer = -1;
+
+enemies = [];
+fighters = [];
