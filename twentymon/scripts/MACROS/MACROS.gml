@@ -55,6 +55,7 @@ enum NpcBehavior {
 	spin,
 	wander,
 	linewalk
+}
 
 // Battle actions
 enum BattleActions {
