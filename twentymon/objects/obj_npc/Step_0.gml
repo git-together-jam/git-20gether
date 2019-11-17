@@ -1,9 +1,24 @@
 /// @description Movement
 
+#region // Update character sprite
+
+
+if(dir == Facing.UP) {
+	sprite_index = spr_player_up;
+} else if(dir == Facing.DOWN) {
+	sprite_index = spr_player_down;
+} else if(dir == Facing.RIGHT) {
+	sprite_index = spr_player_right;
+} else if(dir == Facing.LEFT) {
+	sprite_index = spr_player_left;
+}
+
+#endregion
 
 // exit if dialog is active
 if(!dialog_inactive()) {
 	image_speed = 0;
+	alarm[0] = currentActionTimer;
 	exit;
 }
 
@@ -91,20 +106,7 @@ if(place_meeting(target_x, target_y, obj_obstacle)) {
 }
 
 #endregion
-#region // Update character sprite
 
-
-if(dir == Facing.UP) {
-	sprite_index = spr_player_up;
-} else if(dir == Facing.DOWN) {
-	sprite_index = spr_player_down;
-} else if(dir == Facing.RIGHT) {
-	sprite_index = spr_player_right;
-} else if(dir == Facing.LEFT) {
-	sprite_index = spr_player_left;
-}
-
-#endregion
 #region // look for player?
 var _coords = project_direction(dir, lookDistance * TILE_SIZE);
 

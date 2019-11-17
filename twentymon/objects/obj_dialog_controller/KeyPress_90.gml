@@ -22,5 +22,10 @@ if(show_prompt) {
 		show_prompt = false;
 		ready = false;
 		alarm[0] = 5;
+		if(listener != noone) {
+			with(listener) {
+				event_user(15);
+			}
+		}
 	}
 }

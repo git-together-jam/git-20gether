@@ -154,7 +154,7 @@
             "Key": "183ee5ed-f923-4115-8e9e-14b3bd042d8e",
             "Value": {
                 "id": "afb6b6e5-f0d9-45af-a6c1-451bd73e3c96",
-                "resourcePath": "views\\183ee5ed-f923-4115-8e9e-14b3bd042d8e.yy",
+                "resourcePath": "views\/183ee5ed-f923-4115-8e9e-14b3bd042d8e.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -194,7 +194,7 @@
             "Key": "1c54e9ec-43fa-487c-ae9e-de4ed6ebb1dc",
             "Value": {
                 "id": "b97b013e-0872-4614-9899-d5b717bd21a0",
-                "resourcePath": "objects\\obj_camera\\obj_camera.yy",
+                "resourcePath": "objects\/obj_camera\/obj_camera.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -306,7 +306,7 @@
             "Key": "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
             "Value": {
                 "id": "9f15851a-9f3f-4126-a9a6-4220f4f590f7",
-                "resourcePath": "scripts\\battle_change_state\\battle_change_state.yy",
+                "resourcePath": "scripts\/battle_change_state\/battle_change_state.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -330,7 +330,7 @@
             "Key": "508a298f-35a2-4b3e-86c0-8de81d1b6e91",
             "Value": {
                 "id": "692ab356-b2f3-47cc-97a6-68dd04028071",
-                "resourcePath": "objects\\obj_player_mon\\obj_player_mon.yy",
+                "resourcePath": "objects\/obj_player_mon\/obj_player_mon.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -388,6 +388,14 @@
                 "id": "d6d5dbdf-d87a-490d-a326-2ef91a038b5e",
                 "resourcePath": "views\/62006a51-eb5f-4846-ac8e-9ef44d65221d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6481aaa4-b272-42ed-a5d8-57a82cf1eb7e",
+            "Value": {
+                "id": "8207041d-a944-425f-a66e-aaddfc907093",
+                "resourcePath": "objects\/obj_sign\/obj_sign.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -487,6 +495,14 @@
             }
         },
         {
+            "Key": "7fb1ee49-e81d-497d-ae94-4cebae6d2207",
+            "Value": {
+                "id": "ab39ceee-a678-49a6-bf29-657eb25c94d7",
+                "resourcePath": "sprites\/spr_sign\/spr_sign.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "83859764-d8b8-4004-adcb-8fa4879a0b8e",
             "Value": {
                 "id": "9ccfd3f6-375f-4d80-977a-765fd1ddce2f",
@@ -522,7 +538,7 @@
             "Key": "887bada7-af80-4e53-9454-5d4f5997e6e2",
             "Value": {
                 "id": "060cfe17-1449-4a3a-9591-4375bbf8952f",
-                "resourcePath": "scripts\\next_turn\\next_turn.yy",
+                "resourcePath": "scripts\/next_turn\/next_turn.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -698,7 +714,7 @@
             "Key": "bf1626bf-d9bc-4fa7-acf1-1231c434ff7a",
             "Value": {
                 "id": "22947853-07e7-4a88-a38b-37189e9b3cdb",
-                "resourcePath": "scripts\\start_die_roll\\start_die_roll.yy",
+                "resourcePath": "scripts\/start_die_roll\/start_die_roll.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -738,7 +754,7 @@
             "Key": "c4f4a154-d661-4170-b132-8ed5f583d042",
             "Value": {
                 "id": "b2d8dee9-b1cd-4e24-95e4-acdffe8f288a",
-                "resourcePath": "sprites\\spr_door_temp\\spr_door_temp.yy",
+                "resourcePath": "sprites\/spr_door_temp\/spr_door_temp.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -770,7 +786,7 @@
             "Key": "cdb5adba-2b41-4ac0-a380-279e57f1483f",
             "Value": {
                 "id": "156b5b3c-1667-4787-9065-2d3fb68573d0",
-                "resourcePath": "objects\\obj_mon\\obj_mon.yy",
+                "resourcePath": "objects\/obj_mon\/obj_mon.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -786,7 +802,7 @@
             "Key": "cf24485f-f273-44a6-85dc-236074968f7d",
             "Value": {
                 "id": "1d97f09b-d22d-4538-8641-1aa71308ddd1",
-                "resourcePath": "scripts\\next_mon\\next_mon.yy",
+                "resourcePath": "scripts\/next_mon\/next_mon.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -810,7 +826,7 @@
             "Key": "da5a6479-9445-4aff-b5e9-d78936e11a2c",
             "Value": {
                 "id": "b07922fc-26e7-4c13-b982-8949166a7870",
-                "resourcePath": "scripts\\calculate_attack_damage\\calculate_attack_damage.yy",
+                "resourcePath": "scripts\/calculate_attack_damage\/calculate_attack_damage.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -834,7 +850,7 @@
             "Key": "df8e847d-e1a6-4d42-9c41-ce408e919563",
             "Value": {
                 "id": "ba421021-3213-4fa7-8a86-ac17066cc2c3",
-                "resourcePath": "objects\\obj_enemy_mon\\obj_enemy_mon.yy",
+                "resourcePath": "objects\/obj_enemy_mon\/obj_enemy_mon.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -850,7 +866,7 @@
             "Key": "e0bdca8b-d084-43fc-8da5-5d2d7bb22258",
             "Value": {
                 "id": "4eb274c3-8c92-47b5-ae07-7a2d8d116d08",
-                "resourcePath": "scripts\\battle_add_enemies\\battle_add_enemies.yy",
+                "resourcePath": "scripts\/battle_add_enemies\/battle_add_enemies.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -866,7 +882,7 @@
             "Key": "ed3e21d4-5bf2-4489-aaa1-f9e62bb30e8b",
             "Value": {
                 "id": "06852252-5399-4871-9e66-0ceac9d2539c",
-                "resourcePath": "objects\\obj_playerspawner\\obj_playerspawner.yy",
+                "resourcePath": "objects\/obj_playerspawner\/obj_playerspawner.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -890,7 +906,7 @@
             "Key": "f2ea93ed-d780-4920-bc9c-2ba95ccf26ce",
             "Value": {
                 "id": "bb2e304d-e77c-449b-ba95-bc45cd846002",
-                "resourcePath": "objects\\obj_door\\obj_door.yy",
+                "resourcePath": "objects\/obj_door\/obj_door.yy",
                 "resourceType": "GMObject"
             }
         },
