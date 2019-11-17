@@ -1,5 +1,7 @@
-/// @func dialog_show(str...)
-/// @arg str
+/// @func dialog_show(message, prompt_count, strs...)
+/// @arg message
+/// @arg prompt_count
+/// @arg strs
 
 var _answers = [];
 var _followups = [];

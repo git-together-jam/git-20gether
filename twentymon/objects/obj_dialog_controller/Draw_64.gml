@@ -1,6 +1,6 @@
 /// @description Draw the dialog box
 var draw_x = x;
-var draw_y = y + padding;
+var draw_y = y;
 
 // draw dialog box
 draw_set_color(c_white);
@@ -12,6 +12,7 @@ draw_set_color(c_black);
 draw_rectangle(draw_x, draw_y, draw_x + width, draw_y + height, true);
 
 draw_x += padding;
+draw_y += padding;
 
 // draw visible message lines
 for(var i = 0; i < line_display_count; i++) {
