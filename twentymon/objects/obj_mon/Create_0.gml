@@ -1,4 +1,5 @@
 name = "";
+element = undefined;
 
 max_hp = undefined;
 max_stamina = undefined;

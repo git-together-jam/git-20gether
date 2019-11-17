@@ -16,6 +16,7 @@ for (var i = 0; i < array_length_1d(_fighters); i++) {
 			// Set variables from the ds_map
 			sprite_index = _monInfo[? "sprite"];
 			name = _monInfo[? "name"];
+			element = _monInfo[? "element"];
 			max_hp = _stats[? "max_hp"];
 			max_stamina = _stats[? "max_stamina"];
 			strength = _stats[? "strength"];

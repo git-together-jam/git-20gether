@@ -8,13 +8,21 @@ enum TwentymonType {
 	mon2
 }
 
+enum TwentymonElement {
+	water,
+	fire,
+	earth,
+	neutral
+}
+
 #region Mon 1
 var _mon1 = ds_map_create();
 var _mon1Stats = ds_list_create();
 
 // Base map
-_mon1[? "name"] = "Mon 1";
 _mon1[? "sprite"] = spr_debog;
+_mon1[? "name"] = "Mon 1";
+_mon1[? "element"] = TwentymonElement.water;
 ds_map_add_list(_mon1, "stats", _mon1Stats);
 
 // Stats
@@ -40,8 +48,9 @@ var _mon2 = ds_map_create();
 var _mon2Stats = ds_list_create();
 
 // Base map
-_mon2[? "name"] = "Mon 2";
 _mon2[? "sprite"] = spr_debog;
+_mon2[? "name"] = "Mon 2";
+_mon2[? "element"] = TwentymonElement.neutral;
 ds_map_add_list(_mon2, "stats", _mon2Stats);
 
 // Stats
