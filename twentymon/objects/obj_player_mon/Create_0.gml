@@ -3,5 +3,5 @@
 // Inherit the parent event
 event_inherited();
 
-is_enemy = false;
+isEnemy = false;
 

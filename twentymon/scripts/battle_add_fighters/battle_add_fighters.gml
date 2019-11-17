@@ -25,7 +25,7 @@ for (var i = 0; i < array_length_1d(_fighters); i++) {
 			hp = max_hp;
 			stamina = max_stamina;
 			
-			is_enemy = false;
+			isEnemy = false;
 			
 			// Add the mon to the priority queue
 			ds_priority_add(obj_battle.twentymon_queue, id, agility);

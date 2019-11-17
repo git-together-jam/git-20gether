@@ -62,13 +62,16 @@ switch(battleState) {
 		#endregion
 	
 	case BattleStates.enemyTurn: #region Enemy turn
+	
+		targetMon = instance_find(obj_player_mon, 0);
 		
-		currentMon.image_blend = c_green; // Placeholder
+		// Placeholder
+		currentMon.image_blend = c_green;
+		targetMon.image_blend = c_blue;
 		
 		// Enemy AI (not done)
 		if ((waitTimer > 0) && (--waitTimer == 0)) {
 			waitTimer = -1;
-			targetMon = instance_find(obj_player_mon, 0);
 			start_die_roll(BattleStates.enemyAttackRoll, false);
 		}
 		

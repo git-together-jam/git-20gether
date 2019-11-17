@@ -4,7 +4,7 @@
 currentMon = next_mon();
 		
 // Set turn state
-if (currentMon.is_enemy) {
+if (currentMon.isEnemy) {
 	waitTimer = room_speed * 1.5;
 	battle_change_state(BattleStates.enemyTurn);
 } else {

@@ -7,6 +7,7 @@ switch(battleState) {
 		break;
 	case BattleStates.enemyTurn:
 		currentMon.image_blend = c_red;
+		targetMon.image_blend = c_white;
 		break;
 	default: break;
 }
