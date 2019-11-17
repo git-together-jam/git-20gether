@@ -1,6 +1,7 @@
 behavior = NpcBehavior.stationary;
 dir = Facing.UP;
-actionTimer = 15;
+actionTimer = 90;
+alarm[0] = actionTimer;
 lookDistance = 4; // How many tiles can the npc look to see the player
 moving = false;
 imgspeed = 1;

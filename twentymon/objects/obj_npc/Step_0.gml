@@ -1,4 +1,4 @@
-/// @description Player Movement
+/// @description Movement
 
 
 // exit if dialog is active
@@ -12,7 +12,12 @@ var _dirUp = dir == Facing.UP;
 var _dirDown = dir == Facing.DOWN;
 var _dirLeft = dir == Facing.LEFT;
 var _dirRight = dir == Facing.RIGHT;
-var _mvspd = TILE_MOVE_SPD;
+var _mvspd;
+if(behavior == NpcBehavior.spin || behavior == NpcBehavior.stationary) {
+	_mvspd = 0;
+} else {
+	_mvspd = TILE_MOVE_SPD;
+}
 
 
 if (target_x > x) { x += _mvspd;} // Right
@@ -25,7 +30,9 @@ if (target_x == x && target_y == y) {
 	moving = false;
 }
 
-if(_mvspd != 0) {
+if(_mvspd == 0 || !moving) {
+	image_speed = 0;
+} else {
 	image_speed = imgspeed;
 }
 
@@ -63,11 +70,17 @@ if(!moving) {
 	}
 	var _tile = tile_col_get_mask(x + _dx, _yGrid + _dy);
 	if ((_tile == Tile_Col.AIR || _tile == _oneWayTile) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
-		target_y += sign(_dy) * TILE_SIZE;
-		target_x += sign(_dx) * TILE_SIZE;
+		if(behavior == NpcBehavior.linewalk) {
+			target_y += sign(_dy) * TILE_SIZE;
+			target_x += sign(_dx) * TILE_SIZE;
+		}
 		moving = true;
 	} else {
-		dir = opposite_direction(dir);
+		if(behavior == NpcBehavior.linewalk) {
+			dir = opposite_direction(dir);
+		} else if(behavior == NpcBehavior.wander) {
+			event_user(1);
+		}
 	}
 }
 
@@ -93,7 +106,7 @@ if(dir == Facing.UP) {
 
 #endregion
 #region // look for player?
-var _coords = project_direction(dir, lookDistance);
+var _coords = project_direction(dir, lookDistance * TILE_SIZE);
 
 if(collision_line(x, y, _coords[0], _coords[1], obj_player, false, true)) {
 	// do something;

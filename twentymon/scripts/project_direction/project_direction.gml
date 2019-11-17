@@ -24,6 +24,9 @@ switch(_dir) {
 }
 
 var _coords = [];
-_coords[0] = x + _dx;
-_coords[1] = y + _dy;
+var _x = (bbox_right + bbox_left) / 2;
+var _y = (bbox_bottom + bbox_top) / 2;
+
+_coords[0] = _x + _dx;
+_coords[1] = _y + _dy;
 return _coords;
