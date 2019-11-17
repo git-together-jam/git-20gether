@@ -1,8 +1,8 @@
 /// @desc Init battle
 
 // Positioning
-battleY = 240;
-boardline = 300;
+battleY = floor(room_height * .5);
+boardline = floor(room_height * .75);
 
 // States
 battleState = BattleStates.start;
