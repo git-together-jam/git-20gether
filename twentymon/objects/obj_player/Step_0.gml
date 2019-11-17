@@ -67,7 +67,7 @@ var _moveLeft = TILE_SIZE;
 var _moveRight = TILE_SIZE;
 var _moveUp = TILE_SIZE;
 var _moveDown = TILE_SIZE;
-var _yGrid = y-TILE_SIZE;
+var _yGrid = y//-TILE_SIZE;
 
 #region //Movement Input
 #region //Jumping

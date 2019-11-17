@@ -1,9 +1,8 @@
-/// @description Insert description here
-// You can write your code in this editor
-var a=instance_create_depth(x,y,0,obj_playerspawner) //create a persistant object to manage player spawn
-with a{
-	valx=other.spawnpos[0]; //spawnpos is where we want the player to spawn in the next room
-	valy=other.spawnpos[1];
-	roomcheck=other.roomgo;
+/// @desc Create player spawner and move to new roow
+with(instance_create_depth(x,y,0,obj_playerspawner)) {
+	target_x = other.spawn_pos[0];
+	target_y = other.spawn_pos[1];
+	target_room = other.target_room;
 }
-room_goto(roomgo)
+
+room_goto(target_room);
