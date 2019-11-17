@@ -14,4 +14,6 @@ hsp = -5.5;
 image_speed = 3;
 numspeed = image_speed / 20;
 
-shouldBump = false; // for table bumps;
+// Table bumps
+canBump = true;
+shouldBump = false;

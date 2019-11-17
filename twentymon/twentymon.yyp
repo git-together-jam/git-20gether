@@ -250,7 +250,7 @@
             "Key": "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
             "Value": {
                 "id": "9f15851a-9f3f-4126-a9a6-4220f4f590f7",
-                "resourcePath": "scripts\/change_battle_state\/change_battle_state.yy",
+                "resourcePath": "scripts\\battle_change_state\\battle_change_state.yy",
                 "resourceType": "GMScript"
             }
         },

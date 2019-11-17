@@ -19,9 +19,9 @@ twentymon_queue = ds_priority_create();
 twentymon_buffer = ds_priority_create();
 
 // Actions
-current_mon = noone;
-current_action = -1;
-action_target = noone;
+currentMon = noone;
+targetMon = noone;
+targetAction = -1;
 
 enemies = [];
 fighters = [];
