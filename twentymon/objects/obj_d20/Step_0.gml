@@ -1,8 +1,13 @@
 /// @description Animation and table bumbs
 
 if (isRolling) {
+	// Table bumps
+	if (keyboard_check_pressed(ord("Z"))) {
+		shouldBump = true;
+	}
+	
+	// Gravity and movement
 	if (y < boardline) {
-		// Apply gravity
 	    vsp += grav;
 	} else {
 		// Bounce back
@@ -16,6 +21,7 @@ if (isRolling) {
 			shouldBump = false;
 		}
 	}
+	
 	x += hsp;
 	y = approach(y, boardline, vsp);
 	

@@ -1,8 +1,8 @@
 /// @desc States
 if (timer < 90000000000000000) timer++;
 
-goodpoke.image_yscale = sin(timer/15)*0.1 + 1;
-badpoke.image_yscale = sin(timer/15)*0.1 + 1;
+//goodpoke.image_yscale = sin(timer/15)*0.1 + 1;
+//badpoke.image_yscale = sin(timer/15)*0.1 + 1;
 
 switch(battleState) {
 	case BattleStates.start: #region Start
@@ -24,14 +24,7 @@ switch(battleState) {
 		}
 		break;
 		#endregion
-	case BattleStates.dieRoll: #region Die roll
-		// Table bumps
-		if (keyboard_check_pressed(ord("Z"))) {
-			with(obj_d20) {
-				shouldBump = true;
-			}
-		}
-		
+	case BattleStates.dieRoll: #region Die roll		
 		if (!obj_d20.isRolling) {
 			// Placeholder
 			if (keyboard_check_pressed(ord("X"))) {
