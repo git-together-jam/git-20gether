@@ -3,9 +3,10 @@
 
 // Tile Specific
 #macro TILE_SIZE 20
+#macro TILE_MOVE_SIZE 10
 #macro TILE_MOVE_SPD 1 
-#macro TILE_JUMP_SPD 4
-#macro JUMP_DIST_ANIM -6
+#macro TILE_JUMP_SPD 3
+#macro JUMP_DIST_ANIM -7
 
 enum Tile_Col {
 	AIR,	

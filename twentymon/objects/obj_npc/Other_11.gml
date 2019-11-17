@@ -14,7 +14,7 @@ if(random(1) > 0.5) {
 	} else {
 		dir = Facing.LEFT;
 	}
-	var _tile = tile_col_get_mask(x + TILE_SIZE * _sign, y - TILE_SIZE);
+	var _tile = tile_col_get_mask(x + TILE_SIZE * _sign, y);
 	if (_tile != Tile_Col.AIR  || place_meeting(x + TILE_SIZE * _sign, y, obj_obstacle)) {
 		event_user(1);
 		exit;
@@ -30,7 +30,7 @@ if(random(1) > 0.5) {
 	} else {
 		dir = Facing.UP;
 	}
-	var _tile = tile_col_get_mask(x, y - TILE_SIZE + TILE_SIZE * _sign);
+	var _tile = tile_col_get_mask(x, y + TILE_SIZE * _sign);
 	if (_tile != Tile_Col.AIR || place_meeting(x , y + TILE_SIZE * _sign, obj_obstacle)) {
 		event_user(1);
 		exit;
