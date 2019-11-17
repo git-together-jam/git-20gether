@@ -42,3 +42,11 @@ enum BattleStates {
 	attack,
 	dieRoll
 }
+
+// Mons
+
+enum LevelingCurve {
+	fast,
+	medium,
+	slow
+}
