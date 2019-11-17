@@ -1,8 +1,8 @@
 {
-    "id": "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
+    "id": "cc1fa7c7-5ed8-412f-8069-7534ba0eebea",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "change_battle_state",
+    "name": "twentymon_get_level",
     "IsCompatibility": false,
     "IsDnD": false
 }

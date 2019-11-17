@@ -35,10 +35,30 @@ enum Facing {
 	DOWN
 }
 
-// Battle
+// Battle states
 enum BattleStates {
 	start,
 	playerTurn,
-	attack,
+	playerAttackRoll,
+	playerDefenseRoll,
+	playerAttack,
+	enemyTurn,
+	enemyAttackRoll,
+	enemyDefenseRoll,
+	enemyAttack,
 	dieRoll
+}
+
+// Battle actions
+enum BattleActions {
+	attack,
+	defend,
+	rest
+}
+
+// Mons
+enum LevelingCurve {
+	fast,
+	medium,
+	slow
 }
