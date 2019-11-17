@@ -6,7 +6,8 @@
     "children": [
         "2d4d4257-794d-451a-855d-e1e18e0b6260",
         "e0bdca8b-d084-43fc-8da5-5d2d7bb22258",
-        "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58"
+        "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
+        "bf1626bf-d9bc-4fa7-acf1-1231c434ff7a"
     ],
     "filterType": "GMScript",
     "folderName": "Battle System",

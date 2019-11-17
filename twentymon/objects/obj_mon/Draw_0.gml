@@ -9,4 +9,5 @@ if (mouse_hover_object(id)) {
 	draw_text(5, 35, "Strength: " + string(strength));
 	draw_text(5, 50, "Defense: " + string(defense));
 	draw_text(5, 65, "Agility: " + string(agility));
+	draw_set_colour(c_white)
 }

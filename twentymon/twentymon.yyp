@@ -607,6 +607,14 @@
             }
         },
         {
+            "Key": "bf1626bf-d9bc-4fa7-acf1-1231c434ff7a",
+            "Value": {
+                "id": "22947853-07e7-4a88-a38b-37189e9b3cdb",
+                "resourcePath": "scripts\\start_die_roll\\start_die_roll.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c0b1c8b2-9e7c-4986-aca9-026bc3ad8beb",
             "Value": {
                 "id": "83295168-de94-4049-a4ab-ff27519b2fb4",
@@ -816,6 +824,7 @@
         "2d4d4257-794d-451a-855d-e1e18e0b6260",
         "e0bdca8b-d084-43fc-8da5-5d2d7bb22258",
         "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
+        "bf1626bf-d9bc-4fa7-acf1-1231c434ff7a",
         "c19cf893-5642-4341-bc3c-9b050b646b45"
     ],
     "tutorial": ""
