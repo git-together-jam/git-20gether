@@ -2,7 +2,7 @@ gml_pragma("global", "scr_init()");
 
 randomize();
 
-#region Twentymons data
+/*#region Twentymons data
 enum TwentymonType {
 	mon1,
 	mon2
@@ -79,4 +79,5 @@ ds_list_add_map(global.Twentymons, _mon2);
 // Party
 global.PlayerParty = ds_list_create();
 party_add_twentymon(TwentymonType.mon1, 1);
-party_add_twentymon(TwentymonType.mon1, 2);
+party_add_twentymon(TwentymonType.mon1, 2);*/
+twentymons_init()

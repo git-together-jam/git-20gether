@@ -55,3 +55,10 @@ enum BattleActions {
 	defend,
 	rest
 }
+
+// Mons
+enum LevelingCurve {
+	fast,
+	medium,
+	slow
+}
