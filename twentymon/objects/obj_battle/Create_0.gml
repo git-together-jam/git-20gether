@@ -22,6 +22,7 @@ twentymon_buffer = ds_priority_create();
 currentMon = noone;
 targetMon = noone;
 targetAction = -1;
+waitTimer = -1;
 
 enemies = [];
 fighters = [];

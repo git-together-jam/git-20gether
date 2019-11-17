@@ -20,3 +20,6 @@ switch(targetAction) {
 draw_set_align(7);
 draw_text(5, room_height - 5, _text);
 ///
+
+draw_set_align(9);
+draw_text(room_width - 5, room_height - 5, waitTimer);

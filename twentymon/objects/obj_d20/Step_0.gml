@@ -2,7 +2,7 @@
 
 if (isRolling) {
 	// Table bumps
-	if (keyboard_check_pressed(ord("Z"))) {
+	if (canBump && keyboard_check_pressed(ord("Z"))) {
 		shouldBump = true;
 	}
 	

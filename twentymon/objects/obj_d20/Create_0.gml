@@ -5,6 +5,7 @@ number = roll_d20();
 image_index = random_range(0, image_number);
 
 isRolling = true;
+playerControlled = false;
 
 boardline = obj_battle.boardline;
 grav = 0.4;

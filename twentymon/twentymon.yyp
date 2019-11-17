@@ -447,6 +447,14 @@
             }
         },
         {
+            "Key": "887bada7-af80-4e53-9454-5d4f5997e6e2",
+            "Value": {
+                "id": "060cfe17-1449-4a3a-9591-4375bbf8952f",
+                "resourcePath": "scripts\\next_turn\\next_turn.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "8ba24045-4acd-4c6f-a556-bd315514a3b2",
             "Value": {
                 "id": "9ad9112d-6377-4148-9a77-522fd2bdf255",
@@ -679,6 +687,14 @@
             }
         },
         {
+            "Key": "cf24485f-f273-44a6-85dc-236074968f7d",
+            "Value": {
+                "id": "1d97f09b-d22d-4538-8641-1aa71308ddd1",
+                "resourcePath": "scripts\\next_mon\\next_mon.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d54f4bd6-f8e3-4606-9935-4924a1cbab2e",
             "Value": {
                 "id": "5f422a76-c83d-4acf-9ef5-7ca17773003a",
@@ -691,6 +707,14 @@
             "Value": {
                 "id": "c645a7e5-5473-4206-8aaf-ad99db64eaa6",
                 "resourcePath": "scripts\/draw_text_col\/draw_text_col.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "da5a6479-9445-4aff-b5e9-d78936e11a2c",
+            "Value": {
+                "id": "b07922fc-26e7-4c13-b982-8949166a7870",
+                "resourcePath": "scripts\\calculate_attack_damage\\calculate_attack_damage.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -823,8 +847,11 @@
         "7ec576fd-b810-4b70-8a2e-ab483f73a379",
         "2d4d4257-794d-451a-855d-e1e18e0b6260",
         "e0bdca8b-d084-43fc-8da5-5d2d7bb22258",
+        "da5a6479-9445-4aff-b5e9-d78936e11a2c",
         "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
         "bf1626bf-d9bc-4fa7-acf1-1231c434ff7a",
+        "cf24485f-f273-44a6-85dc-236074968f7d",
+        "887bada7-af80-4e53-9454-5d4f5997e6e2",
         "c19cf893-5642-4341-bc3c-9b050b646b45"
     ],
     "tutorial": ""

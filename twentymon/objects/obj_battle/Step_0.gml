@@ -3,16 +3,12 @@ switch(battleState) {
 	case BattleStates.start: #region Start
 		// Battle start animation (not done)
 		
-		// Find starting mon
-		currentMon = instance_find(obj_player_mon, 0);
-		//currentMon = ds_priority_delete_max(twentymon_queue);
-		//ds_priority_add(twentymon_buffer, currentMon, currentMon.agility);
+		// Start first turn
+		next_turn();
 		
-		// Set starting turn state
-		/*if (currentMon.is_enemy) battle_change_state(BattleStates.enemyTurn);
-		else*/ battle_change_state(BattleStates.playerTurn);	
 		break;
 		#endregion
+	
 	case BattleStates.playerTurn: #region Player turn	
 		// Action select (not done)
 		if (keyboard_check_pressed(ord("Z"))) {
@@ -47,28 +43,10 @@ switch(battleState) {
 		
 		break;
 		#endregion
+	
 	case BattleStates.playerAttackRoll: #region Player attack roll
 		attackRoll = dieResult;
 		start_die_roll(BattleStates.enemyDefenseRoll, false);
-		break;
-		#endregion
-	case BattleStates.playerDefenseRoll: #region Player defense roll
-	
-		break;
-		#endregion
-	case BattleStates.playerAttack: #region Player attack
-		var _dmg = max(attackRoll + currentMon.strength - defenseRoll - targetMon.defense, 0);
-		targetMon.hp -= _dmg;
-		battle_change_state(BattleStates.playerTurn);
-		break;
-		#endregion
-	case BattleStates.enemyTurn: #region Enemy turn
-		// Enemy AI (not done)
-		start_die_roll(BattleStates.enemyAttackRoll, false);
-		break;
-		#endregion
-	case BattleStates.enemyAttackRoll: #region Enemy attack roll
-	
 		break;
 		#endregion
 	case BattleStates.enemyDefenseRoll: #region Enemy defense roll
@@ -76,6 +54,44 @@ switch(battleState) {
 		battle_change_state(BattleStates.playerAttack);
 		break;
 		#endregion
+	case BattleStates.playerAttack: #region Player attack
+		var _dmg = calculate_attack_damage();
+		targetMon.hp -= _dmg;
+		next_turn();
+		break;
+		#endregion
+	
+	case BattleStates.enemyTurn: #region Enemy turn
+		
+		currentMon.image_blend = c_green; // Placeholder
+		
+		// Enemy AI (not done)
+		if ((waitTimer > 0) && (--waitTimer == 0)) {
+			waitTimer = -1;
+			targetMon = instance_find(obj_player_mon, 0);
+			start_die_roll(BattleStates.enemyAttackRoll, false);
+		}
+		
+		break;
+		#endregion
+	
+	case BattleStates.enemyAttackRoll: #region Enemy attack roll
+		attackRoll = dieResult;
+		start_die_roll(BattleStates.playerDefenseRoll, true);
+		break;
+		#endregion
+	case BattleStates.playerDefenseRoll: #region Player defense roll
+		defenseRoll = dieResult;
+		battle_change_state(BattleStates.enemyAttack);
+		break;
+		#endregion
+	case BattleStates.enemyAttack: #region Enemy attack
+		var _dmg = calculate_attack_damage();
+		targetMon.hp -= _dmg;
+		next_turn();
+		break;
+		#endregion
+	
 	case BattleStates.dieRoll: #region Die roll		
 		if (!obj_d20.isRolling) {
 			if (mouse_check_button_pressed(mb_left)) {
