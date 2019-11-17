@@ -43,8 +43,6 @@ var _moveLeft = TILE_SIZE;
 var _moveRight = TILE_SIZE;
 var _moveUp = TILE_SIZE;
 var _moveDown = TILE_SIZE;
-var _yGrid = y - TILE_SIZE;
-
 
 #region // Moving
 
@@ -68,7 +66,7 @@ if(!moving) {
 		_dy = _moveDown;
 		_oneWayTile = Tile_Col.ONE_DOWN;
 	}
-	var _tile = tile_col_get_mask(x + _dx, _yGrid + _dy);
+	var _tile = tile_col_get_mask(x + _dx, y + _dy);
 	if ((_tile == Tile_Col.AIR || _tile == _oneWayTile) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
 		if(behavior == NpcBehavior.linewalk) {
 			target_y += sign(_dy) * TILE_SIZE;
