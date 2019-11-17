@@ -1,6 +1,12 @@
 /// @description Player Movement
 
 
+// exit if dialog is active
+if(!dialog_inactive()) {
+	image_speed = 0;
+	exit;
+}
+
 #region // Move the Character
 var _dirUp = dir == Facing.UP;
 var _dirDown = dir == Facing.DOWN;
@@ -8,17 +14,19 @@ var _dirLeft = dir == Facing.LEFT;
 var _dirRight = dir == Facing.RIGHT;
 var _mvspd = TILE_MOVE_SPD;
 
-if(dialog_inactive()) { // don't move while dialog is happening
-	if (target_x > x) { x += _mvspd;} // Right
-	if (target_x < x) { x -= _mvspd;} // Left
-	if (target_y > y) { y += _mvspd;} // Down
-	if (target_y < y) { y -= _mvspd;} // Up
-}
 
+if (target_x > x) { x += _mvspd;} // Right
+if (target_x < x) { x -= _mvspd;} // Left
+if (target_y > y) { y += _mvspd;} // Down
+if (target_y < y) { y -= _mvspd;} // Up
 
 // Stops character at position when reach goal
 if (target_x == x && target_y == y) {
 	moving = false;
+}
+
+if(_mvspd != 0) {
+	image_speed = imgspeed;
 }
 
 #endregion 
@@ -81,6 +89,15 @@ if(dir == Facing.UP) {
 	sprite_index = spr_player_right;
 } else if(dir == Facing.LEFT) {
 	sprite_index = spr_player_left;
+}
+
+#endregion
+#region // look for player?
+var _coords = project_direction(dir, lookDistance);
+
+if(collision_line(x, y, _coords[0], _coords[1], obj_player, false, true)) {
+	// do something;
+	show_debug_message("Found Player");
 }
 
 #endregion

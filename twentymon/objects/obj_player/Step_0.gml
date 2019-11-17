@@ -8,6 +8,12 @@ So I apologize for any "spaghetti code". ~TabularElf
 
 */
 
+// check for dialog
+if(!dialog_inactive()) {
+	image_speed = 0;
+	exit;
+}
+
 
 #region // Move the Player
 var _mvspd;
@@ -22,12 +28,12 @@ if (running) {
 if (holding >= MAX_KEYS_HELD) {
 	image_speed = imgspd;	
 }
-if(dialog_inactive()) {
-	if (target_x > x) { x += _mvspd;} // Right
-	if (target_x < x) { x -= _mvspd;} // Left
-	if (target_y > y) { y += _mvspd;} // Down
-	if (target_y < y) { y -= _mvspd;} // Up
-}
+
+if (target_x > x) { x += _mvspd;} // Right
+if (target_x < x) { x -= _mvspd;} // Left
+if (target_y > y) { y += _mvspd;} // Down
+if (target_y < y) { y -= _mvspd;} // Up
+
 
 // Jumping specific animation
 
