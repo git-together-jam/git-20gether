@@ -687,6 +687,14 @@
             }
         },
         {
+            "Key": "c4f4a154-d661-4170-b132-8ed5f583d042",
+            "Value": {
+                "id": "b2d8dee9-b1cd-4e24-95e4-acdffe8f288a",
+                "resourcePath": "sprites\\spr_door_temp\\spr_door_temp.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c67f1fb6-49c3-424a-9cad-e23d83aa969f",
             "Value": {
                 "id": "361a1c47-de01-46a6-88c2-b33d83327c1f",
@@ -799,6 +807,14 @@
             }
         },
         {
+            "Key": "ed3e21d4-5bf2-4489-aaa1-f9e62bb30e8b",
+            "Value": {
+                "id": "06852252-5399-4871-9e66-0ceac9d2539c",
+                "resourcePath": "objects\\obj_playerspawner\\obj_playerspawner.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ee9dc4c0-02f7-44de-83e7-1d5e597b8341",
             "Value": {
                 "id": "6b1e5922-1bc1-4b3b-8963-cebacb3702d3",
@@ -812,6 +828,14 @@
                 "id": "cc86186c-1e2e-4198-9aa0-763db7aaf510",
                 "resourcePath": "scripts\/ds_destroy\/ds_destroy.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f2ea93ed-d780-4920-bc9c-2ba95ccf26ce",
+            "Value": {
+                "id": "bb2e304d-e77c-449b-ba95-bc45cd846002",
+                "resourcePath": "objects\\obj_door\\obj_door.yy",
+                "resourceType": "GMObject"
             }
         },
         {
