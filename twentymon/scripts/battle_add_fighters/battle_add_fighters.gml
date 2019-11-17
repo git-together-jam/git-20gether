@@ -8,15 +8,15 @@ for (var i = 0; i < array_length_1d(_fighters); i++) {
 		var _mon = global.PlayerParty[| _index];
 		
 		// Get data from the twentymon
-		var _monInfo = global.Twentymons[| real(_mon[? "type"])];
+		var _mon_data = global.Twentymons[? _mon[? "ID"]];
 		var _stats = _mon[? "stats"];
 		
 		// Spawn mon and set its stats
 		with (instance_create_layer(room_width/2, battleY + 40, "Instances", obj_player_mon)) {
 			// Set variables from the ds_map
-			sprite_index = _monInfo[? "sprite"];
-			name = _monInfo[? "name"];
-			element = _monInfo[? "element"];
+			sprite_index = _mon_data[? "sprite"];
+			name = _mon_data[? "name"];
+			type = _mon_data[? "type"];
 			max_hp = _stats[? "max_hp"];
 			max_stamina = _stats[? "max_stamina"];
 			strength = _stats[? "strength"];
