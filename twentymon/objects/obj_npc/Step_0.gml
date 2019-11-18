@@ -61,17 +61,18 @@ if(_mvspd == 0 || !moving) {
 if(!moving && shouldApproach && !approaching && behavior != NpcBehavior.approaching) {
 	var _coords = project_direction(dir, lookDistance * TILE_SIZE);
 	var _y = (bbox_bottom + bbox_top) / 2;
-	if(collision_line(x, _y, _coords[0], _coords[1], obj_player, true, true)) {
+	var _x = (bbox_left + bbox_right) / 2;
+	if(collision_line(_x, _y, _coords[0], _coords[1], obj_player, true, true)) {
 		var _lineOfSight = true;
-		if(_coords[0] == x) {
+		if(_coords[0] == _x) {
 			// up or down
 			var _dist = (y - _coords[1]) / TILE_SIZE;
 			var _dir = sign(_dist);
 			for(var i = 0; i < abs(_dist); i++) {
-				if(place_meeting(x, y + i * _dir * TILE_SIZE, obj_player)) {
+				if(place_meeting(x + i * _dir * TILE_SIZE, y, obj_player)) {
 					break;
 				}
-				else if(!tile_free(x, y + i * _dir * TILE_SIZE)) {
+				else if(!tile_free(x + i * _dir * TILE_SIZE, y)) {
 					_lineOfSight = false;
 					break;
 				}
@@ -93,7 +94,7 @@ if(!moving && shouldApproach && !approaching && behavior != NpcBehavior.approach
 		if(_lineOfSight) {
 			approaching = true;
 			obj_player.frozen = true;
-			dialog_exclamation(x - TILE_SIZE / 2, y - TILE_SIZE * 2);
+			dialog_exclamation(x, y - TILE_SIZE);
 		}
 	}
 }
@@ -130,13 +131,19 @@ if(!moving && behavior != NpcBehavior.approaching) {
 		approaching = false;
 		moving = true;
 	}
-	
+	else if(actionQueue) {
+		if(behavior == NpcBehavior.wander) {
+			event_user(1);
+		}
+		actionQueue = false;
+	}
 	else if(tile_free(x + _dx, y + _dy)) {
 		if(behavior == NpcBehavior.linewalk) {
 			target_y += sign(_dy) * TILE_SIZE;
 			target_x += sign(_dx) * TILE_SIZE;
+			moving = true;
 		}
-		moving = true;
+		
 	} else {
 		if(behavior == NpcBehavior.linewalk) {
 			dir = opposite_direction(dir);

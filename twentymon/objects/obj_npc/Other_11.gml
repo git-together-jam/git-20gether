@@ -21,6 +21,7 @@ if(random(1) > 0.5) {
 		exit;
 	}
 	target_x += TILE_SIZE * _sign;
+	moving = true;
 	target_y = y;
 } else {
 	if(_to_begin) {
@@ -38,4 +39,5 @@ if(random(1) > 0.5) {
 	}
 	target_y += TILE_SIZE * _sign;
 	target_x = x;
+	moving = true;
 }

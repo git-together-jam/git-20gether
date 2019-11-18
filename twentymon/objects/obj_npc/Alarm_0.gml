@@ -2,7 +2,11 @@
 
 if(behavior == NpcBehavior.wander) {
 	alarm[0] = actionTimer;
-	event_user(1);
+	if(moving == false) {
+		event_user(1);
+	} else {
+		actionQueue = true;
+	}
 
 } else if(behavior == NpcBehavior.spin) {
 	alarm[0] = actionTimer;

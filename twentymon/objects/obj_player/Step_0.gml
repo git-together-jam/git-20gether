@@ -212,9 +212,14 @@ if(!moving) {
 			target_x += sign(_dx) * TILE_MOVE_SIZE;
 			moving = true;
 		}*/
-		if(tile_free(x + _dx, y + _dy, dir)) {
+		/*if(tile_free(x + _dx, y + _dy, dir)) {
 			target_y += sign(_dy) * TILE_SIZE;
 			target_x += sign(_dx) * TILE_SIZE;
+			moving = true;
+		}*/
+		if (!tile_collision(x + _dx, y + _dy, [Tile_Col.AIR, _oneWayTile]) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
+			target_y += sign(_dy) * TILE_MOVE_SIZE;
+			target_x += sign(_dx) * TILE_MOVE_SIZE;
 			moving = true;
 		}
 	}
