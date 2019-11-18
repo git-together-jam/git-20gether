@@ -311,6 +311,14 @@
             }
         },
         {
+            "Key": "42051df7-ca02-ad31-a88c-898ce6f17297",
+            "Value": {
+                "id": "66f84b48-6115-45ec-8a02-58848ebd5b3b",
+                "resourcePath": "objects\\obj_menu\\obj_menu.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "452fbd2c-d4da-4a88-98eb-0880f24fa106",
             "Value": {
                 "id": "20dbc54f-9f14-4c38-b52e-29d7d4f07b0f",
@@ -332,14 +340,6 @@
                 "id": "9f15851a-9f3f-4126-a9a6-4220f4f590f7",
                 "resourcePath": "scripts\\battle_change_state\\battle_change_state.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "42051df7-ca02-ad31-a88c-898ce6f17297",
-            "Value": {
-                "id": "66f84b48-6115-45ec-8a02-58848ebd5b3b",
-                "resourcePath": "objects\\obj_menu\\obj_menu.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -839,19 +839,19 @@
             }
         },
         {
-            "Key": "d533a54d-a451-4b2b-a31c-853473a878f7",
-            "Value": {
-                "id": "de6dd675-efb1-4c36-9e7c-c6685753f4f2",
-                "resourcePath": "views\\d533a54d-a451-4b2b-a31c-853473a878f7.yy",
-                "resourceType": "GMFolder"
-            }
-        },
-        {
             "Key": "cf24485f-f273-44a6-85dc-236074968f7d",
             "Value": {
                 "id": "1d97f09b-d22d-4538-8641-1aa71308ddd1",
                 "resourcePath": "scripts\\next_mon\\next_mon.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "d533a54d-a451-4b2b-a31c-853473a878f7",
+            "Value": {
+                "id": "de6dd675-efb1-4c36-9e7c-c6685753f4f2",
+                "resourcePath": "views\\d533a54d-a451-4b2b-a31c-853473a878f7.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -916,6 +916,14 @@
                 "id": "4eb274c3-8c92-47b5-ae07-7a2d8d116d08",
                 "resourcePath": "scripts\\battle_add_enemies\\battle_add_enemies.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e42bf5cc-3f46-4d67-a6d0-a4885a11ac3f",
+            "Value": {
+                "id": "c635eb95-72c5-46d1-8ff0-e713cd7fa9b3",
+                "resourcePath": "options\\android\\options_android.yy",
+                "resourceType": "GMAndroidOptions"
             }
         },
         {

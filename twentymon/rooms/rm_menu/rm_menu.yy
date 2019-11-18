@@ -2,7 +2,7 @@
 {
     "name": "rm_menu",
     "id": "f49e5331-5902-41ad-b2a1-4a7fa686788a",
-    "creationCodeFile": "",
+    "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,
     "inheritCreationOrder": false,
     "inheritLayers": false,
@@ -87,12 +87,12 @@
     },
     "roomSettings":     {
         "id": "1a893b03-943d-40c5-bbaa-fe049b9a9e72",
-        "Height": 400,
+        "Height": 240,
         "inheritRoomSettings": false,
         "modelName": "GMRoomSettings",
         "persistent": false,
         "mvc": "1.0",
-        "Width": 400
+        "Width": 320
     },
     "mvc": "1.0",
     "views": [
