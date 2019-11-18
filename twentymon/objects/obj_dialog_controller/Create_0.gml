@@ -11,6 +11,11 @@ has_question = false;
 selected_index = -1;
 cursor_index = 0;
 
+
+exclamation = false;
+exclamation_x = 0;
+exclamation_y = 0;
+
 ready = true;
 
 x = width / 2; // center in room

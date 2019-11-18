@@ -1,4 +1,8 @@
 /// @description Draw the dialog box
+if(exclamation) {
+	exit;
+}
+
 var draw_x = x;
 var draw_y = y;
 

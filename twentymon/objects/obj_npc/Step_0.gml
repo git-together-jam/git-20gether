@@ -58,7 +58,7 @@ if(_mvspd == 0 || !moving) {
 #endregion 
 
 #region // look for player
-if(!moving && shouldApproach && !approaching) {
+if(!moving && shouldApproach && !approaching && behavior != NpcBehavior.approaching) {
 	var _coords = project_direction(dir, lookDistance * TILE_SIZE);
 	var _y = (bbox_bottom + bbox_top) / 2;
 	if(collision_line(x, _y, _coords[0], _coords[1], obj_player, true, true)) {
@@ -93,6 +93,7 @@ if(!moving && shouldApproach && !approaching) {
 		if(_lineOfSight) {
 			approaching = true;
 			obj_player.frozen = true;
+			dialog_exclamation(x - TILE_SIZE / 2, y - TILE_SIZE * 2);
 		}
 	}
 }
