@@ -43,7 +43,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "undefined",
-            "varName": "roomgo",
+            "varName": "target_room",
             "varType": 1
         },
         {
@@ -56,12 +56,12 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "[0,0]",
-            "varName": "spawnpos",
+            "value": "[0, 0]",
+            "varName": "spawn_pos",
             "varType": 0
         }
     ],
     "solid": false,
     "spriteId": "c4f4a154-d661-4170-b132-8ed5f583d042",
-    "visible": true
+    "visible": false
 }

@@ -106,7 +106,6 @@ var _moveRight = TILE_SIZE;
 var _moveUp = TILE_SIZE;
 var _moveDown = TILE_SIZE;
 
-
 #region // Moving
 
 if(!moving && behavior != NpcBehavior.approaching) {
