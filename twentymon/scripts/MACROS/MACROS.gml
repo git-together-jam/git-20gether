@@ -54,7 +54,8 @@ enum NpcBehavior {
 	stationary,
 	spin,
 	wander,
-	linewalk
+	linewalk,
+	approaching
 }
 
 // Battle actions

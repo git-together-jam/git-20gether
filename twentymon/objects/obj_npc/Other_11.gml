@@ -4,6 +4,7 @@ var _to_begin = false;
 if(distance_to_point(xstart, ystart) > TILE_SIZE * 3) {
 	_to_begin = true;
 }
+
 if(random(1) > 0.5) {
 	// x
 	if(_to_begin) {
