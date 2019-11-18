@@ -295,11 +295,27 @@
             }
         },
         {
+            "Key": "3bc924bd-38cb-4c2e-8a7f-098d598339ae",
+            "Value": {
+                "id": "ea99fb9b-7932-415d-9660-7605d4b7e2f9",
+                "resourcePath": "objects\\obj_cursor\\obj_cursor.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "3e4c72df-a150-465f-aac6-9afb7929c7d2",
             "Value": {
                 "id": "17d5d3f7-879e-4538-941b-8fa7b1429d61",
                 "resourcePath": "scripts\/check_inputs\/check_inputs.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "42051df7-ca02-ad31-a88c-898ce6f17297",
+            "Value": {
+                "id": "66f84b48-6115-45ec-8a02-58848ebd5b3b",
+                "resourcePath": "objects\\obj_menu\\obj_menu.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -551,6 +567,14 @@
             }
         },
         {
+            "Key": "9022099c-d4f9-4d1b-a4ff-76212dacde97",
+            "Value": {
+                "id": "53174c59-2425-4bd6-a542-78c1f3359109",
+                "resourcePath": "datafiles_yy\\Monster_Twenty.otf.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "93566aad-c3b3-48a9-8fa7-9c5ee19f74ac",
             "Value": {
                 "id": "ea1f4f98-25d8-44e9-b571-be8745470c2a",
@@ -675,6 +699,14 @@
             "Value": {
                 "id": "0931f22d-dbd3-4314-be45-4cfd7915bfa5",
                 "resourcePath": "views\/aee1f6f3-6672-4252-bc50-77189c511a79.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b1143f42-d75e-409a-8ba6-3087b7bb9916",
+            "Value": {
+                "id": "c6d631e6-02ee-4ca4-bddb-ed0d7d070d84",
+                "resourcePath": "views\\b1143f42-d75e-409a-8ba6-3087b7bb9916.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -815,6 +847,14 @@
             }
         },
         {
+            "Key": "d533a54d-a451-4b2b-a31c-853473a878f7",
+            "Value": {
+                "id": "de6dd675-efb1-4c36-9e7c-c6685753f4f2",
+                "resourcePath": "views\\d533a54d-a451-4b2b-a31c-853473a878f7.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "d54f4bd6-f8e3-4606-9935-4924a1cbab2e",
             "Value": {
                 "id": "5f422a76-c83d-4acf-9ef5-7ca17773003a",
@@ -879,6 +919,14 @@
             }
         },
         {
+            "Key": "e42bf5cc-3f46-4d67-a6d0-a4885a11ac3f",
+            "Value": {
+                "id": "c635eb95-72c5-46d1-8ff0-e713cd7fa9b3",
+                "resourcePath": "options\\android\\options_android.yy",
+                "resourceType": "GMAndroidOptions"
+            }
+        },
+        {
             "Key": "e94efe3b-c9f0-43eb-b3ef-0921c6e02aac",
             "Value": {
                 "id": "793050fc-f949-4d9f-a215-062c508648da",
@@ -900,6 +948,14 @@
                 "id": "6b1e5922-1bc1-4b3b-8963-cebacb3702d3",
                 "resourcePath": "scripts\/dialog_show\/dialog_show.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f059d93b-6279-44f5-89f9-07daa7420b61",
+            "Value": {
+                "id": "ca393bdd-341c-4f91-b761-41fddf651382",
+                "resourcePath": "sprites\\spr_cursor\\spr_cursor.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
