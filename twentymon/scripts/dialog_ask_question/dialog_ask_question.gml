@@ -13,9 +13,10 @@ if(argument_count == 4) {
 }
 
 var _longest_prompt = 0;
-
+draw_set_font(fnt_dialog);
 for(var i = 0; i < array_length_1d(_prompts); i++) {
-	_longest_prompt = max(_longest_prompt, string_width(_prompts[i]));
+	_prompts[i] = monster_transform_string(_prompts[i]);
+	_longest_prompt = max(_longest_prompt, string_width(_prompts[i]) + obj_dialog_controller.padding * 2);
 }
 
 with(obj_dialog_controller) {

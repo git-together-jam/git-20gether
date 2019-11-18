@@ -10,6 +10,7 @@ if(!moving && character_can_move()) {
 			originalDir = dir;
 			currentActionTimer = alarm[0];
 			dir = opposite_direction(other.dir);
+			shouldApproach = false;
 			if(_inst.asksQuestion) {
 				_question = true;
 				_prompts = _inst.prompts;
