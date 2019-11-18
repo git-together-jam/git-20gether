@@ -9,5 +9,6 @@ if (room == rm_battle) {
 	view_width = overworld_view_width;
 	view_height = overworld_view_height;
 }
+snap = true;
 
 surface_resize(application_surface, view_width, view_height);
