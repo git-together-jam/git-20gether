@@ -5,7 +5,7 @@ actionTimer = 90; // How long will the npc take to wander to a new tile, face a 
 lookDistance = 4; // How many tiles can the npc look to see the player
 message = "Hey! I didn't see you there."; // Message on interact
 asksQuestion = false;
-shouldApproach = true;
+shouldApproach = false;
 prompts = [];
 followups = [];
 

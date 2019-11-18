@@ -132,7 +132,7 @@ if(!moving && behavior != NpcBehavior.approaching) {
 	}
 	
 	else if(tile_free(x + _dx, y + _dy)) {
-		if(behavior == NpcBehavior.linewalk || behavior == NpcBehavior.approaching) {
+		if(behavior == NpcBehavior.linewalk) {
 			target_y += sign(_dy) * TILE_SIZE;
 			target_x += sign(_dx) * TILE_SIZE;
 		}

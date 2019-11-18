@@ -8,5 +8,4 @@ if(exclamation) {
 	draw_set_font(fnt_dialog);
 	draw_set_align(5);
 	draw_text(exclamation_x + TILE_SIZE / 2, exclamation_y + TILE_SIZE / 2, "!");
-	show_debug_message(string(exclamation_x) + ", " + string(exclamation_y));
 }

@@ -21,8 +21,6 @@ if(_dir == Facing.UP) {
 	_oneDir = Tile_Col.ONE_LEFT;
 }
 
-
-var _yGrid = _y - TILE_SIZE;
-var _tile = tile_col_get_mask(_x, _yGrid);
+var _tile = tile_col_get_mask(_x, _y);
 
 return (_tile == Tile_Col.AIR || _tile == _oneDir) && !place_meeting(_x, _y, obj_obstacle);
