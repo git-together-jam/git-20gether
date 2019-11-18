@@ -59,14 +59,12 @@ if(_mvspd == 0 || !moving) {
 
 #region // look for player
 if(!moving && shouldApproach && !approaching) {
-	show_debug_message("check");	
 	var _coords = project_direction(dir, lookDistance * TILE_SIZE);
-	if(collision_line(x, y, _coords[0], _coords[1], obj_player, true, true)) {
-		show_debug_message("check succeeded");	
+	var _y = (bbox_bottom + bbox_top) / 2;
+	if(collision_line(x, _y, _coords[0], _coords[1], obj_player, true, true)) {
 		var _lineOfSight = true;
-		if(abs(_coords[0] - x) < TILE_SIZE) {
+		if(_coords[0] == x) {
 			// up or down
-			show_debug_message("y-axis");
 			var _dist = (y - _coords[1]) / TILE_SIZE;
 			var _dir = sign(_dist);
 			for(var i = 0; i < abs(_dist); i++) {
@@ -78,9 +76,8 @@ if(!moving && shouldApproach && !approaching) {
 					break;
 				}
 			}
-		} else if(abs(_coords[1] - y) < TILE_SIZE) {
+		} else if(_coords[1] == _y) {
 			// left or right
-			show_debug_message("x-axis");
 			var _dist = (_coords[0] - x) / TILE_SIZE;
 			var _dir = sign(_dist);
 			for(var i = 0; i < abs(_dist); i++) {
@@ -92,15 +89,10 @@ if(!moving && shouldApproach && !approaching) {
 					break;
 				}
 			}
-		}
+		} 
 		if(_lineOfSight) {
-			show_debug_message("Found Player");
 			approaching = true;
-			var _vec = direction_to_vector(dir, TILE_SIZE);
 			obj_player.frozen = true;
-			target_x = x + _vec[0];
-			target_y = y + _vec[1];
-			behavior = NpcBehavior.approaching;
 		}
 	}
 }
@@ -116,7 +108,7 @@ var _moveDown = TILE_SIZE;
 
 #region // Moving
 
-if(!moving) {
+if(!moving && behavior != NpcBehavior.approaching) {
 	var _dx = 0;
 	var _dy = 0;
 	if(_dirLeft) {
@@ -131,7 +123,15 @@ if(!moving) {
 	if(_dirDown) {
 		_dy = _moveDown;
 	}
-	if(tile_free(x + _dx, y + _dy)) {
+	if(approaching) {
+		target_y += sign(_dy) * TILE_SIZE;
+		target_x += sign(_dx) * TILE_SIZE;
+		behavior = NpcBehavior.approaching;
+		approaching = false;
+		moving = true;
+	}
+	
+	else if(tile_free(x + _dx, y + _dy)) {
 		if(behavior == NpcBehavior.linewalk || behavior == NpcBehavior.approaching) {
 			target_y += sign(_dy) * TILE_SIZE;
 			target_x += sign(_dx) * TILE_SIZE;
@@ -142,21 +142,40 @@ if(!moving) {
 			dir = opposite_direction(dir);
 		} else if(behavior == NpcBehavior.wander) {
 			event_user(1);
-		} else if(behavior == NpcBehavior.approaching) {
-			behavior = NpcBehavior.stationary;
-			approaching = false;
-			shouldApproach = false;
-			obj_player.frozen = false;
-			originalDir = dir;
-			currentActionTimer = alarm[0];
-			dialog_set_message(message, self);
 		}
 	}
 }
 
+else if(!moving && behavior == NpcBehavior.approaching) {
+	var _vec = direction_to_vector(dir, TILE_SIZE);
+	var _dx = _vec[0];
+	var _dy = _vec[1];
+	
+	if(tile_free(x + _dx, y + _dy)) {
+		target_x += _dx;
+		target_y += _dy;
+		moving = true;
+	} else if (place_meeting(x + _dx, y + _dy, obj_player)) {
+		behavior = NpcBehavior.stationary;
+		target_x = x;
+		target_y = y;
+		approaching = false;
+		shouldApproach = false;
+		obj_player.frozen = false;
+		originalDir = dir;
+		currentActionTimer = alarm[0];
+		dialog_set_message(message, self);
+	} else {
+		dir = opposite_direction(dir);
+	}
+	
+}
+
 // get out the the way of the player if they walk into path
 if(place_meeting(target_x, target_y, obj_obstacle)) {
-	dir = opposite_direction(dir);
+	if(behavior != NpcBehavior.approaching) {
+		dir = opposite_direction(dir); 
+	}
 	moving = false;
 }
 
