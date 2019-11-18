@@ -1,7 +1,13 @@
-/// @func dialog_set_message(message)
+/// @func dialog_set_message(message, ?listener)
 /// @arg message
+/// @arg ?listener
 
-var _str = monster_transform_string(argument0);
+var _listener = noone;
+if(argument_count == 2) {
+	_listener = argument[1];
+}
+
+var _str = monster_transform_string(argument[0]);
 dialog_init();
 with(obj_dialog_controller) {
 	line_height = string_height("I") - 5;
@@ -10,5 +16,6 @@ with(obj_dialog_controller) {
 	line_index = 0;
 	line_display_count = floor((height - padding * 2) / line_height);
 	last_page_offset = lines_count % line_display_count;
+	listener = _listener;
 	visible = true;
 }

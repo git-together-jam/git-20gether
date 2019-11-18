@@ -9,3 +9,4 @@ jumping = false;
 jump_Dist = 0;
 holding = 0;
 imgspd = 1;
+frozen = false;

@@ -1,9 +1,24 @@
 /// @description Movement
 
+#region // Update character sprite
+
+
+if(dir == Facing.UP) {
+	sprite_index = spr_player_up;
+} else if(dir == Facing.DOWN) {
+	sprite_index = spr_player_down;
+} else if(dir == Facing.RIGHT) {
+	sprite_index = spr_player_right;
+} else if(dir == Facing.LEFT) {
+	sprite_index = spr_player_left;
+}
+
+#endregion
 
 // exit if dialog is active
 if(!dialog_inactive()) {
 	image_speed = 0;
+	alarm[0] = currentActionTimer;
 	exit;
 }
 
@@ -15,6 +30,8 @@ var _dirRight = dir == Facing.RIGHT;
 var _mvspd;
 if(behavior == NpcBehavior.spin || behavior == NpcBehavior.stationary) {
 	_mvspd = 0;
+} else if(behavior == NpcBehavior.approaching) {
+	_mvspd = TILE_MOVE_SPD / 2;
 } else {
 	_mvspd = TILE_MOVE_SPD;
 }
@@ -32,11 +49,57 @@ if (target_x == x && target_y == y) {
 
 if(_mvspd == 0 || !moving) {
 	image_speed = 0;
+} else if(behavior == NpcBehavior.approaching) {
+	image_speed = imgspeed / 2;
 } else {
 	image_speed = imgspeed;
 }
 
 #endregion 
+
+#region // look for player
+if(!moving && shouldApproach && !approaching && behavior != NpcBehavior.approaching) {
+	var _coords = project_direction(dir, lookDistance * TILE_SIZE);
+	var _y = (bbox_bottom + bbox_top) / 2;
+	var _x = (bbox_left + bbox_right) / 2;
+	if(collision_line(_x, _y, _coords[0], _coords[1], obj_player, true, true)) {
+		var _lineOfSight = true;
+		if(_coords[0] == _x) {
+			// up or down
+			var _dist = (y - _coords[1]) / TILE_SIZE;
+			var _dir = sign(_dist);
+			for(var i = 0; i < abs(_dist); i++) {
+				if(place_meeting(x + i * _dir * TILE_SIZE, y, obj_player)) {
+					break;
+				}
+				else if(!tile_free(x + i * _dir * TILE_SIZE, y)) {
+					_lineOfSight = false;
+					break;
+				}
+			}
+		} else if(_coords[1] == _y) {
+			// left or right
+			var _dist = (_coords[0] - x) / TILE_SIZE;
+			var _dir = sign(_dist);
+			for(var i = 0; i < abs(_dist); i++) {
+				if(place_meeting(x + i * _dir * TILE_SIZE, y, obj_player)) {
+					break;
+				}
+				else if(!tile_free(x + i * _dir * TILE_SIZE, y)) {
+					_lineOfSight = false;
+					break;
+				}
+			}
+		} 
+		if(_lineOfSight) {
+			approaching = true;
+			obj_player.frozen = true;
+			dialog_exclamation(x, y - TILE_SIZE);
+		}
+	}
+}
+
+#endregion
 
 // Used to correct characters position & move properly, because bottom center on sprites is necessary.
 var _moveLeft = TILE_SIZE;
@@ -46,33 +109,41 @@ var _moveDown = TILE_SIZE;
 
 #region // Moving
 
-if(!moving) {
+if(!moving && behavior != NpcBehavior.approaching) {
 	var _dx = 0;
 	var _dy = 0;
-	var _oneWayTile;
 	if(_dirLeft) {
 		_dx = -_moveLeft;
-		_oneWayTile = Tile_Col.ONE_LEFT;
 	}
 	if(_dirRight) {
 		_dx = _moveRight;
-		_oneWayTile = Tile_Col.ONE_RIGHT;
 	}
 	if(_dirUp) {
 		_dy = -_moveUp;
-		_oneWayTile = Tile_Col.ONE_UP;
 	}
 	if(_dirDown) {
 		_dy = _moveDown;
-		_oneWayTile = Tile_Col.ONE_DOWN;
 	}
-	var _tile = tile_col_get_mask(x + _dx, y + _dy);
-	if ((_tile == Tile_Col.AIR || _tile == _oneWayTile) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
+	if(approaching) {
+		target_y += sign(_dy) * TILE_SIZE;
+		target_x += sign(_dx) * TILE_SIZE;
+		behavior = NpcBehavior.approaching;
+		approaching = false;
+		moving = true;
+	}
+	else if(actionQueue) {
+		if(behavior == NpcBehavior.wander) {
+			event_user(1);
+		}
+		actionQueue = false;
+	}
+	else if(tile_free(x + _dx, y + _dy)) {
 		if(behavior == NpcBehavior.linewalk) {
 			target_y += sign(_dy) * TILE_SIZE;
 			target_x += sign(_dx) * TILE_SIZE;
+			moving = true;
 		}
-		moving = true;
+		
 	} else {
 		if(behavior == NpcBehavior.linewalk) {
 			dir = opposite_direction(dir);
@@ -82,33 +153,37 @@ if(!moving) {
 	}
 }
 
+else if(!moving && behavior == NpcBehavior.approaching) {
+	var _vec = direction_to_vector(dir, TILE_SIZE);
+	var _dx = _vec[0];
+	var _dy = _vec[1];
+	
+	if(tile_free(x + _dx, y + _dy)) {
+		target_x += _dx;
+		target_y += _dy;
+		moving = true;
+	} else if (place_meeting(x + _dx, y + _dy, obj_player)) {
+		behavior = NpcBehavior.stationary;
+		target_x = x;
+		target_y = y;
+		approaching = false;
+		shouldApproach = false;
+		obj_player.frozen = false;
+		originalDir = dir;
+		currentActionTimer = alarm[0];
+		dialog_set_message(message, self);
+	} else {
+		dir = opposite_direction(dir);
+	}
+	
+}
+
 // get out the the way of the player if they walk into path
 if(place_meeting(target_x, target_y, obj_obstacle)) {
-	dir = opposite_direction(dir);
+	if(behavior != NpcBehavior.approaching) {
+		dir = opposite_direction(dir); 
+	}
 	moving = false;
-}
-
-#endregion
-#region // Update character sprite
-
-
-if(dir == Facing.UP) {
-	sprite_index = spr_player_up;
-} else if(dir == Facing.DOWN) {
-	sprite_index = spr_player_down;
-} else if(dir == Facing.RIGHT) {
-	sprite_index = spr_player_right;
-} else if(dir == Facing.LEFT) {
-	sprite_index = spr_player_left;
-}
-
-#endregion
-#region // look for player?
-var _coords = project_direction(dir, lookDistance * TILE_SIZE);
-
-if(collision_line(x, y, _coords[0], _coords[1], obj_player, false, true)) {
-	// do something;
-	show_debug_message("Found Player");
 }
 
 #endregion

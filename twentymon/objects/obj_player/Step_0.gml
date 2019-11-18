@@ -9,7 +9,7 @@ So I apologize for any "spaghetti code". ~TabularElf
 */
 
 // check for dialog
-if(!dialog_inactive()) {
+if(!character_can_move()) {
 	image_speed = 0;
 	exit;
 }
@@ -203,6 +203,20 @@ if(!moving) {
 	}
 	
 	if(holding >= MAX_KEYS_HELD) {
+		/*var _tile = tile_col_get_mask(x + _dx, _yGrid + _dy);
+		if ((_tile == Tile_Col.AIR || _tile == _oneWayTile) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
+			target_y += sign(_dy) * TILE_SIZE;
+			target_x += sign(_dx) * TILE_SIZE;
+		if (!tile_collision(x + _dx, y + _dy, [Tile_Col.AIR, _oneWayTile]) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
+			target_y += sign(_dy) * TILE_MOVE_SIZE;
+			target_x += sign(_dx) * TILE_MOVE_SIZE;
+			moving = true;
+		}*/
+		/*if(tile_free(x + _dx, y + _dy, dir)) {
+			target_y += sign(_dy) * TILE_SIZE;
+			target_x += sign(_dx) * TILE_SIZE;
+			moving = true;
+		}*/
 		if (!tile_collision(x + _dx, y + _dy, [Tile_Col.AIR, _oneWayTile]) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
 			target_y += sign(_dy) * TILE_MOVE_SIZE;
 			target_x += sign(_dx) * TILE_MOVE_SIZE;

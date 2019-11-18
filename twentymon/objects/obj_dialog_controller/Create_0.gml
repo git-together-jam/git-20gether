@@ -3,13 +3,18 @@ var _view_width = camera_get_view_width(_cam);
 var _view_height = camera_get_view_height(_cam);
 
 width = _view_width * 0.5;
-height = 100;
+height = 70;
 padding = 10;
 
 show_prompt = false;
 has_question = false;
 selected_index = -1;
 cursor_index = 0;
+
+
+exclamation = false;
+exclamation_x = 0;
+exclamation_y = 0;
 
 ready = true;
 
