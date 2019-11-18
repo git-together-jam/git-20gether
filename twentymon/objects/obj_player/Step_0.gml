@@ -8,6 +8,12 @@ So I apologize for any "spaghetti code". ~TabularElf
 
 */
 
+// check for dialog
+if(!dialog_inactive()) {
+	image_speed = 0;
+	exit;
+}
+
 
 #region // Move the Player
 var _mvspd;
@@ -27,6 +33,7 @@ if (target_x > x) { x += _mvspd;} // Right
 if (target_x < x) { x -= _mvspd;} // Left
 if (target_y > y) { y += _mvspd;} // Down
 if (target_y < y) { y -= _mvspd;} // Up
+
 
 // Jumping specific animation
 
@@ -56,11 +63,15 @@ if (target_x == x && target_y == y) {
 #endregion 
 
 // Used to correct player position & move properly, because bottom center on sprites is necessary.
-var _moveLeft = TILE_SIZE;
-var _moveRight = TILE_SIZE;
-var _moveUp = TILE_SIZE;
-var _moveDown = TILE_SIZE;
-var _yGrid = y-TILE_SIZE;
+var _moveLeft = TILE_MOVE_SIZE;
+var _moveRight = TILE_MOVE_SIZE;
+var _moveUp = TILE_MOVE_SIZE;
+var _moveDown = TILE_MOVE_SIZE;
+
+var _jumpLeft = TILE_SIZE;
+var _jumpRight = TILE_SIZE;
+var _jumpUp = TILE_SIZE;
+var _jumpDown = TILE_SIZE;
 
 #region //Movement Input
 #region //Jumping
@@ -74,79 +85,70 @@ if (KEY_JUMP && !moving && !jumping) {
 	var _jump_move = TILE_SIZE*2;
 	switch(dir) {
 		// Left
-		case Facing.LEFT: 
-		
-		// Get Tiles
-		var _tileA = tile_col_get_mask(x-_moveLeft,_yGrid);
-		var _tileB = tile_col_get_mask(x-(_moveLeft*2),_yGrid);
+		case Facing.LEFT:
 		
 		// Check if Jumpable & Jump
-		if (_tileB == Tile_Col.AIR && (_tileA == Tile_Col.JUMP || _tileA == Tile_Col.AIR || _tileA == Tile_Col.ONE_LEFT)) {//if global.col_data[# (x/TILE_SIZE)-2,(y/TILE_SIZE)] == Tile_Col.AIR && (global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.JUMP or global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.AIR) {
-			target_x -= _jump_move; 
+		if (!tile_collision(x - _jumpLeft * 2, y, [Tile_Col.AIR]) &&
+		!tile_collision(x - _jumpLeft, y, [Tile_Col.JUMP, Tile_Col.AIR, Tile_Col.ONE_LEFT])) {//if global.col_data[# (x/TILE_SIZE)-2,(y/TILE_SIZE)] == Tile_Col.AIR && (global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.JUMP or global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.AIR) {
+			target_x -= _jump_move;
 			jumping = true;
-		} else {
-			if (_tileA == Tile_Col.AIR) {
-				target_x -= TILE_SIZE; 
-				jumping = true;
-			}
+		} else if (!tile_collision(x - _jumpLeft, y, [Tile_Col.AIR])) {
+			target_x -= TILE_SIZE; 
+			jumping = true;
+		} else if (!tile_collision(x - _moveLeft, y, [Tile_Col.AIR])) {
+			target_x -= TILE_MOVE_SIZE; 
+			jumping = true;
 		}
 		break;
 		
 		// Right
-		case Facing.RIGHT: 
-		
-		// Get Tiles
-		var _tileA = tile_col_get_mask(x+_moveRight,_yGrid);
-		var _tileB = tile_col_get_mask(x+(_moveRight*2),_yGrid);
+		case Facing.RIGHT:
 		
 		// Check if Jumpable & Jump
-		if (_tileB == Tile_Col.AIR && (_tileA == Tile_Col.JUMP || _tileA == Tile_Col.AIR || _tileA == Tile_Col.ONE_RIGHT)) {//if global.col_data[# (x/TILE_SIZE)+2,(y/TILE_SIZE)] == Tile_Col.AIR && (global.col_data[# (x/TILE_SIZE)+1,(y/TILE_SIZE)] == Tile_Col.JUMP or global.col_data[# (x/TILE_SIZE)+1,(y/TILE_SIZE)] == Tile_Col.AIR) {
-			target_x += _jump_move; 
+		if (!tile_collision(x + _jumpRight * 2, y, [Tile_Col.AIR]) &&
+		!tile_collision(x + _jumpRight, y, [Tile_Col.JUMP, Tile_Col.AIR, Tile_Col.ONE_LEFT])) {//if global.col_data[# (x/TILE_SIZE)-2,(y/TILE_SIZE)] == Tile_Col.AIR && (global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.JUMP or global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.AIR) {
+			target_x += _jump_move;
 			jumping = true;
-		} else {
-			if (_tileA == Tile_Col.AIR) {
-				target_x += TILE_SIZE; 
-				jumping = true;
-			}
+		} else if (!tile_collision(x + _jumpRight, y, [Tile_Col.AIR])) {
+			target_x += TILE_SIZE; 
+			jumping = true;
+		} else if (!tile_collision(x + _moveRight, y, [Tile_Col.AIR])) {
+			target_x += TILE_MOVE_SIZE; 
+			jumping = true;
 		}
-		
 		break;
 		
 		// Up
-		case Facing.UP: 
-		
-		// Get Tiles
-		var _tileA = tile_col_get_mask(x,_yGrid-_moveUp);
-		var _tileB = tile_col_get_mask(x,_yGrid-(_moveUp*2));
+		case Facing.UP:
 		
 		// Check if Jumpable & Jump
-		if (_tileB == Tile_Col.AIR && (_tileA == Tile_Col.JUMP || _tileA == Tile_Col.AIR || _tileA == Tile_Col.ONE_UP)) {//if global.col_data[# (x/TILE_SIZE),(y/TILE_SIZE)-2] == Tile_Col.AIR && (global.col_data[# (x/TILE_SIZE),(y/TILE_SIZE)-1] == Tile_Col.JUMP or global.col_data[# (x/TILE_SIZE),(y/TILE_SIZE)-1] == Tile_Col.AIR)  {
+		if (!tile_collision(x, y - _jumpUp * 2, [Tile_Col.AIR]) &&
+		!tile_collision(x, y - _jumpUp, [Tile_Col.JUMP, Tile_Col.AIR, Tile_Col.ONE_LEFT])) {//if global.col_data[# (x/TILE_SIZE)-2,(y/TILE_SIZE)] == Tile_Col.AIR && (global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.JUMP or global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.AIR) {
 			target_y -= _jump_move;
 			jumping = true;
-		} else {
-			if (_tileA == Tile_Col.AIR) {
-				target_y -= TILE_SIZE; 
-				jumping = true;
-			}
+		} else if (!tile_collision(x, y - _jumpUp, [Tile_Col.AIR])) {
+			target_y -= TILE_SIZE; 
+			jumping = true;
+		} else if (!tile_collision(x, y - _moveLeft, [Tile_Col.AIR])) {
+			target_y -= TILE_MOVE_SIZE; 
+			jumping = true;
 		}
 		break;
 		
 		// Down
-		case Facing.DOWN: 
-		
-		// Get Tiles
-		var _tileA = tile_col_get_mask(x,_yGrid+_moveDown);
-		var _tileB = tile_col_get_mask(x,_yGrid+(_moveDown*2));
+		case Facing.DOWN:
 		
 		// Check if Jumpable & Jump
-		if (_tileB == Tile_Col.AIR && (_tileA == Tile_Col.JUMP || _tileA == Tile_Col.AIR || _tileA == Tile_Col.ONE_DOWN)) {//if global.col_data[# (x/TILE_SIZE),(y/TILE_SIZE)+2] == Tile_Col.AIR && (global.col_data[# (x/TILE_SIZE),(y/TILE_SIZE)+1] == Tile_Col.JUMP or global.col_data[# (x/TILE_SIZE),(y/TILE_SIZE)+1] == Tile_Col.AIR) {
-			target_y += _jump_move; 
+		if (!tile_collision(x, y + _jumpDown * 2, [Tile_Col.AIR]) &&
+		!tile_collision(x, y + _jumpDown, [Tile_Col.JUMP, Tile_Col.AIR, Tile_Col.ONE_LEFT])) {//if global.col_data[# (x/TILE_SIZE)-2,(y/TILE_SIZE)] == Tile_Col.AIR && (global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.JUMP or global.col_data[# (x/TILE_SIZE)-1,(y/TILE_SIZE)] == Tile_Col.AIR) {
+			target_y += _jump_move;
 			jumping = true;
-		} else {
-			if (_tileA == Tile_Col.AIR) {
-				target_y += TILE_SIZE; 
-				jumping = true;
-			}
+		} else if (!tile_collision(x, y + _jumpDown, [Tile_Col.AIR])) {
+			target_y += TILE_SIZE; 
+			jumping = true;
+		} else if (!tile_collision(x, y + _moveDown, [Tile_Col.AIR])) {
+			target_y += TILE_MOVE_SIZE; 
+			jumping = true;
 		}
 		break;
 	}
@@ -169,70 +171,45 @@ if !(KEY_UP || KEY_DOWN || KEY_LEFT || KEY_RIGHT) {
 	holding++;
 } 
 
-// Movement code. Pretty spaghetti like atm.
+// Movement code. 
 
-// LEFT
-if (KEY_LEFT && !moving) {
+if(!moving) {
+	var _dx = 0;
+	var _dy = 0;
+	var _oneWayTile;
+	if(KEY_LEFT) {
+		dir = Facing.LEFT;
+		sprite_index = spr_player_left;
+		_dx = -_moveLeft;
+		_oneWayTile = Tile_Col.ONE_LEFT;
+	}
+	else if(KEY_RIGHT) {
+		dir = Facing.RIGHT;
+		sprite_index = spr_player_right;
+		_dx = _moveRight;
+		_oneWayTile = Tile_Col.ONE_RIGHT;
+	}
+	else if(KEY_UP) {
+		dir = Facing.UP;
+		sprite_index = spr_player_up;
+		_dy = -_moveUp;
+		_oneWayTile = Tile_Col.ONE_UP;
+	}
+	else if(KEY_DOWN) {
+		dir = Facing.DOWN;
+		sprite_index = spr_player_down;
+		_dy = _moveDown;
+		_oneWayTile = Tile_Col.ONE_DOWN;
+	}
 	
-	// Change facing direction (mostly for jumping) && assign sprite.
-	dir = Facing.LEFT;
-	sprite_index = spr_player_left;
-	
-	if holding >= MAX_KEYS_HELD {
-		var _tile = tile_col_get_mask(x-_moveLeft,_yGrid);
-		if (_tile == Tile_Col.AIR or _tile == Tile_Col.ONE_LEFT)  {
-			target_x -= TILE_SIZE;
+	if(holding >= MAX_KEYS_HELD) {
+		if (!tile_collision(x + _dx, y + _dy, [Tile_Col.AIR, _oneWayTile]) && !place_meeting(x + _dx, y + _dy, obj_obstacle)) {
+			target_y += sign(_dy) * TILE_MOVE_SIZE;
+			target_x += sign(_dx) * TILE_MOVE_SIZE;
 			moving = true;
 		}
 	}
 }
 
-// RIGHT
-if (KEY_RIGHT && !moving) {
-	
-	// Change facing direction (mostly for jumping) && assign sprite.
-	dir = Facing.RIGHT;
-	sprite_index = spr_player_right;
-	
-	if holding >= MAX_KEYS_HELD {
-		var _tile = tile_col_get_mask(x+_moveRight,_yGrid);
-		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_RIGHT)   {
-			target_x += TILE_SIZE;
-			moving = true;
-		}
-	}
-}
-
-// UP
-if (KEY_UP && !moving) {
-	
-	// Change facing direction (mostly for jumping) && assign sprite.
-	dir = Facing.UP;
-	sprite_index = spr_player_up;
-	
-	if holding >= MAX_KEYS_HELD {
-		var _tile = tile_col_get_mask(x,_yGrid-_moveUp)
-		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_UP)  {
-			target_y -= TILE_SIZE;
-			moving = true;
-		}
-	}
-}
-
-// DOWN
-if (KEY_DOWN && !moving) {
-	
-	// Change facing direction (mostly for jumping) && assign sprite.
-	dir = Facing.DOWN;
-	sprite_index = spr_player_down;
-	
-	if holding >= MAX_KEYS_HELD {
-		var _tile = tile_col_get_mask(x,_yGrid+_moveDown);
-		if (_tile == Tile_Col.AIR || _tile == Tile_Col.ONE_DOWN)  {
-			target_y += TILE_SIZE;
-			moving = true;
-		}
-	}
-}
 #endregion
 #endregion
