@@ -28,6 +28,7 @@ waitTimer = -1;
 attackStaminaCost = 3;
 defendStaminaCost = 5;
 defenseBoost = 3;
+targetSelected = false;
 
 enemies = [];
 fighters = [];

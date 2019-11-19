@@ -28,6 +28,7 @@ switch(battleState) {
 	case BattleStates.playerTurn: #region Player turn	
 		// Action select
 		currentMon.resting = false;
+		targetMon = noone;
 		battle_dialog_set_message("What will", currentMon.name, "do?");
 		if (obj_battle_dialog.selected_state != noone) {
 			targetAction = obj_battle_dialog.selected_state;
@@ -59,8 +60,9 @@ switch(battleState) {
 				}
 				break;
 			case BattleActions.defend:
+				scr_debug("defend");
 				battle_dialog_set_message(currentMon.name, "gave up its attack to raise its defenses.");
-				currentMon.defense += 2;
+				currentMon.defense += defenseBoost;
 				targetAction = -1;
 				currentMon.stamina -= defendStaminaCost;
 				next_turn();
@@ -99,18 +101,39 @@ switch(battleState) {
 		#endregion
 	
 	case BattleStates.enemyTurn: #region Enemy turn
-	
-		targetMon = instance_find(obj_player_mon, 0);
-		
-		currentMon.state = BattleMonState.attacking;
-		targetMon.state = BattleMonState.defending;
-		battle_dialog_set_message("The enemy", currentMon.name, "attacks", targetMon.name, ".");
+		if(!targetSelected) {
+			var _player_mon_count = instance_number(obj_player_mon);
+			targetMon = instance_find(obj_player_mon, irandom_range(0, _player_mon_count - 1));
+			currentMon.state = BattleMonState.attacking;
+			targetMon.state = BattleMonState.defending;
+			targetSelected = true;
+			if(currentMon.stamina < attackStaminaCost) {
+				battle_dialog_set_message("The enemy", currentMon.name, " tried to attack ", targetMon.name, ", but it's out of stamina, so it hit itself instead.");	
+			} else {
+				battle_dialog_set_message("The enemy", currentMon.name, "attacks", targetMon.name, ".");
+			}
+		}
 		
 		// Enemy AI (not done)
 		if ((waitTimer > 0) && (--waitTimer == 0)) {
-			waitTimer = -1;
+			
+			//if(currentMon.stamina < attackStaminaCost) {
+			//	battle_dialog_set_message("The enemy", currentMon.name, "tried to attack, but it didn't have enough stamina. It hurt itself instead.");
+			//	var _dmg = round(currentMon.hp / 5);
+			//	currentMon.deltaHP += _dmg;
+			//	if(currentMon.hp - currentMon.deltaHP <= 0) {
+			//		currentMon.deltaHP = currentMon.hp - 2;
+			//	}
+			//	next_turn();
+				
+			//} else {
+			//	currentMon.stamina -= attackStaminaCost;
+			//	start_die_roll(BattleStates.enemyAttackRoll, false);
+			//}
+			currentMon.stamina -= attackStaminaCost;
 			start_die_roll(BattleStates.enemyAttackRoll, false);
-			battle_dialog_set_message("The enemy", currentMon.name, "rolls for attack.");
+			waitTimer = -1;
+			targetSelected = false;
 		}
 		
 		break;
@@ -119,14 +142,17 @@ switch(battleState) {
 	case BattleStates.enemyAttackRoll: #region Enemy attack roll
 		attackRoll = dieResult;
 		if(targetMon.resting) {
-			battle_dialog_set_message(targetMon.name, " gave up its defense to restore stamina. Click to continue");
+			battle_dialog_set_message(targetMon.name, " gave up its defense to restore stamina. Click to continue.");
 			if (mouse_check_button_pressed(mb_left)) {
 				battle_change_state(BattleStates.enemyAttack);
 			}
 			defenseRoll = 0;
+		} else if(currentMon.stamina <= 0) {
+			battle_change_state(BattleStates.enemyAttack);
+			defenseRoll = attackRoll;
 		} else {
 			battle_dialog_set_message("Roll for defense. Press |z bump the die.");
-			start_die_roll(BattleStates.playerDefenseRoll, true);
+			start_die_roll(BattleStates.playerDefenseRoll, true);			
 		}
 		break;
 		#endregion
@@ -136,14 +162,19 @@ switch(battleState) {
 		break;
 		#endregion
 	case BattleStates.enemyAttack: #region Enemy attack
-		battle_do_attack(currentMon, targetMon);
+		if(currentMon.stamina <= 0) {
+			battle_do_attack(currentMon, currentMon);
+		} else {
+			battle_do_attack(currentMon, targetMon);
+		}
+		
 		next_turn();
 		break;
 		#endregion
 	
 	case BattleStates.dieRoll: #region Die roll		
 		if (!obj_d20.isRolling) {
-			battle_dialog_set_message("A", floor(obj_d20.number), "was rolled. Click to continue");
+			battle_dialog_set_message("A", floor(obj_d20.number), "was rolled. Click to continue.");
 			if (mouse_check_button_pressed(mb_left)) {
 				dieResult = floor(obj_d20.number);
 				switch(nextState) {

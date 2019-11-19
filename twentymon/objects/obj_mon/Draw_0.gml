@@ -15,17 +15,6 @@ if(state != BattleMonState.idle) {
 	draw_self();
 }
 
-if (mouse_hover_object(id)) {
-	draw_set_colour(c_black);
-	draw_set_align(1);
-	draw_text(5, 5, "Stamina: " + string(stamina) + "/" + string(max_stamina));
-	draw_text(5, 20, "HP: " + string(hp) + "/" + string(max_hp));
-	draw_text(5, 35, "Strength: " + string(strength));
-	draw_text(5, 50, "Defense: " + string(defense));
-	draw_text(5, 65, "Agility: " + string(agility));
-	draw_set_colour(c_white)
-}
-
 if(deltaHP > 0) {
 	hp --;
 	deltaHP --;
@@ -37,6 +26,7 @@ if(hp <= 0) {
 	image_alpha -= 0.05;
 	image_xscale -= 0.03;
 	image_yscale -= 0.03;
+	image_angle += 4;
 } else {
 	// Draw health bar
 	draw_set_color(c_black);
@@ -52,5 +42,23 @@ if(hp <= 0) {
 		draw_set_color(c_red);
 	}
 	draw_rectangle(_x, _y, _x + 100 * _hp, _y + 5, false);
+}
+
+// Draw stats on hover
+if (mouse_hover_object(id)) {
+	draw_set_font(global.SmallFont);
+	var _stamina = monster_transform_string("Stamina: " + string(stamina) + "/" + string(max_stamina));
+	var _width = string_width(_stamina);
+	
+	draw_set_colour(c_white);
+	draw_rectangle(mouse_x, mouse_y + 5, mouse_x + _width + 10, mouse_y + 85, false);
+	draw_set_colour(c_black);
+	draw_set_align(1);
+	
+	draw_text(mouse_x + 5, mouse_y + 5, monster_transform_string(_stamina));
+	draw_text(mouse_x + 5, mouse_y + 20, monster_transform_string("HP: " + string(hp) + "/" + string(max_hp)));
+	draw_text(mouse_x + 5, mouse_y + 35, monster_transform_string("Strength: " + string(strength)));
+	draw_text(mouse_x + 5, mouse_y + 50, monster_transform_string("Defense: " + string(defense)));
+	draw_text(mouse_x + 5, mouse_y + 65, monster_transform_string("Agility: " + string(agility)));
 }
 

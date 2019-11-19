@@ -5,6 +5,6 @@ font_delete(global.TitleFont);
 font_delete(global.MainFont);
 font_delete(global.SmallFont);
 
-//part_type_destroy(global.BattleMonParticle);
-//part_system_destroy(global.Particle_System);
+part_type_destroy(global.BattleMonParticle);
+part_system_destroy(global.Particle_System);
 

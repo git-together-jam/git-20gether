@@ -35,7 +35,7 @@ for (var i = 0; i < array_length_1d(_enemies); i++) {
 			defense = _stats[? "defense"];
 			agility = _stats[? "agility"];
 			hp = max_hp;
-			stamina = max_stamina;
+			stamina = 2;//max_stamina;
 			
 			// Add the enemy to the priority queue
 			ds_priority_add(obj_battle.twentymon_queue, id, agility);

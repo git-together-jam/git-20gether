@@ -2,7 +2,6 @@
 /// @arg [index...]
 
 var _fighters = argument0;
-
 for (var i = 0; i < array_length_1d(_fighters); i++) {
 		var _index = _fighters[i];
 		var _mon = global.PlayerParty[| _index];

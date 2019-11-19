@@ -4,7 +4,7 @@
 
 var _source = argument0;
 var _target = argument1;
-var _dmg = calculate_attack_damage();
+var _dmg = calculate_attack_damage(_source, _target);
 _target.deltaHP += _dmg;
 if(_target.hp - _dmg < 0) {
 	ds_priority_delete_value(obj_battle.twentymon_buffer, _target);

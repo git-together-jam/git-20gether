@@ -1,6 +1,9 @@
-/// @func calculate_attack_damage()
+/// @func calculate_attack_damage(current, target)
 
-var _elemental_attack = round(currentMon.strength * twentymon_element_matchup(currentMon.element, targetMon.element));
+var _current = argument0;
+var _target = argument1;
 
-var _dmg = max(attackRoll + _elemental_attack - defenseRoll - targetMon.defense, 0);
+var _elemental_attack = round(_current.strength * twentymon_element_matchup(_current.element, _target.element));
+
+var _dmg = max(attackRoll + _elemental_attack - defenseRoll - _target.defense, 0);
 return _dmg;
