@@ -7,9 +7,15 @@ var _target = argument1;
 var _dmg = calculate_attack_damage();
 _target.deltaHP += _dmg;
 if(_target.hp - _dmg < 0) {
-	scr_debug("[battle_do_attack] removed twentymon");
 	ds_priority_delete_value(obj_battle.twentymon_buffer, _target);
 	ds_priority_delete_value(obj_battle.twentymon_queue, _target);
+	with(_source) {
+		if(object_index == obj_player_mon) {
+			xp_gained += twentymon_gain_xp(self, _target);
+		}
+	}
+		
+		
 }
 var _inst = instance_create_layer(_source.x, _source.y, "Battle_Effects", obj_battle_effect);
 _inst.target = _target;

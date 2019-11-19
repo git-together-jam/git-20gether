@@ -28,6 +28,7 @@ for (var i = 0; i < array_length_1d(_enemies); i++) {
 			sprite_index = _mon_data[? "sprite"];
 			name = _mon_data[? "name"];
 			element = _mon_data[? "type"];
+			level = _level;
 			max_hp = _stats[? "max_hp"];
 			max_stamina = _stats[? "max_stamina"];
 			strength = _stats[? "strength"];

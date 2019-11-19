@@ -1,9 +1,13 @@
 /// @desc States
-if(instance_number(obj_player_mon) == 0) {
-	// player lost
-	room_goto(global.OverworldRoom);
-} else if(instance_number(obj_enemy_mon) == 0) {
-	// player won
+if(instance_number(obj_player_mon) == 0 || instance_number(obj_enemy_mon) == 0) {
+	var _win = instance_number(obj_enemy_mon) == 0;
+	if(_win) {
+		with(obj_player_mon) {
+			// trigger stats cleanup
+			instance_destroy();
+		}
+	}
+	
 	room_goto(global.OverworldRoom);
 }
 

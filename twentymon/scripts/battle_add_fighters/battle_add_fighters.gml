@@ -17,13 +17,15 @@ for (var i = 0; i < array_length_1d(_fighters); i++) {
 			sprite_index = _mon_data[? "sprite"];
 			name = _mon_data[? "name"];
 			element = _mon_data[? "type"];
+			level = _mon[? "level"];
 			max_hp = _stats[? "max_hp"];
 			max_stamina = _stats[? "max_stamina"];
 			strength = _stats[? "strength"];
 			defense = _stats[? "defense"];
 			agility = _stats[? "agility"];
-			hp = max_hp;
-			stamina = max_stamina;
+			hp = _stats[? "max_hp"];
+			stamina = _stats[? "max_stamina"];
+			partyIndex = _index;
 			
 			isEnemy = false;
 			

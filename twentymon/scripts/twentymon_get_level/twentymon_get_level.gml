@@ -2,7 +2,7 @@
 /// @arg mon
 
 var _mon = argument0;
-var _mon_data = global.Twentymons[? _mon[? "id"]];
+var _mon_data = global.Twentymons[? _mon[? "ID"]];
 var _curve = _mon_data[? "leveling_curve"];
 var _xp = _mon[? "xp"];
 var _exponent = 1.0 / 3.0;

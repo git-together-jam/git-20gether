@@ -359,6 +359,14 @@
             }
         },
         {
+            "Key": "4644ad4a-6518-4eca-aa99-18aac0e77c61",
+            "Value": {
+                "id": "3cf213ed-3826-4af0-b8ec-480036d76c55",
+                "resourcePath": "scripts\/twentymon_do_levelup\/twentymon_do_levelup.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4795424c-ff86-47a9-bdca-3d99e87d64e9",
             "Value": {
                 "id": "fab072cb-48b0-43d9-ac22-d9f763fb6be0",
@@ -644,6 +652,14 @@
                 "id": "646a3304-51e9-48b9-9cf4-6604ffc15d12",
                 "resourcePath": "sprites\/spr_d20_enemy\/spr_d20_enemy.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "98acb53f-d873-43a8-9fbc-85be1b2f4933",
+            "Value": {
+                "id": "fcdda623-2da3-410e-a1cf-2cd93a02b35e",
+                "resourcePath": "scripts\/twentymon_gain_xp\/twentymon_gain_xp.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1015,6 +1031,14 @@
             }
         },
         {
+            "Key": "e5635734-9428-431f-b125-ef64879b7d49",
+            "Value": {
+                "id": "4435dc80-11e0-4626-9699-9a7633af1ebc",
+                "resourcePath": "scripts\/twentymon_element_matchup\/twentymon_element_matchup.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e94efe3b-c9f0-43eb-b3ef-0921c6e02aac",
             "Value": {
                 "id": "793050fc-f949-4d9f-a215-062c508648da",
@@ -1133,6 +1157,8 @@
         "cc1fa7c7-5ed8-412f-8069-7534ba0eebea",
         "2e99cdbf-67dc-419a-ad79-03bccaa05f07",
         "2d0bc384-a0db-4f69-9d05-0a025e508677",
+        "e5635734-9428-431f-b125-ef64879b7d49",
+        "4644ad4a-6518-4eca-aa99-18aac0e77c61",
         "6de69938-fbd9-4870-b5ae-99b8145706b2",
         "661dc74c-2122-4ae7-892d-3f5f060e82f5",
         "9d58702c-0145-469f-aa4a-f0ac96c11546",
@@ -1152,13 +1178,14 @@
         "5d64693a-9459-424e-a42d-e93cdaa9cc3b",
         "2d4d4257-794d-451a-855d-e1e18e0b6260",
         "e0bdca8b-d084-43fc-8da5-5d2d7bb22258",
-        "da5a6479-9445-4aff-b5e9-d78936e11a2c",
         "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
+        "05a15a92-fe50-4391-8ddb-73976a4763ed",
+        "da5a6479-9445-4aff-b5e9-d78936e11a2c",
         "bf1626bf-d9bc-4fa7-acf1-1231c434ff7a",
         "cf24485f-f273-44a6-85dc-236074968f7d",
         "887bada7-af80-4e53-9454-5d4f5997e6e2",
         "b6743045-8bb7-46a4-a8e1-aa712c2b6edd",
-        "05a15a92-fe50-4391-8ddb-73976a4763ed",
+        "98acb53f-d873-43a8-9fbc-85be1b2f4933",
         "c19cf893-5642-4341-bc3c-9b050b646b45",
         "02a1ab39-8f0c-4726-9433-f6524ce3c90f",
         "0114b5e8-119f-4c0c-94e8-17e70fbd16a5",
