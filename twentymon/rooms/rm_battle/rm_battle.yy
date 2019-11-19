@@ -39,9 +39,35 @@
         },
         {
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
+            "name": "Battle_Effects",
+            "id": "7afede94-c951-466b-8cb0-9052b73b4082",
+            "depth": 100,
+            "grid_x": 32,
+            "grid_y": 32,
+            "hierarchyFrozen": false,
+            "hierarchyVisible": true,
+            "inheritLayerDepth": false,
+            "inheritLayerSettings": false,
+            "inheritSubLayers": false,
+            "inheritVisibility": false,
+            "instances": [
+
+            ],
+            "layers": [
+
+            ],
+            "m_parentID": "00000000-0000-0000-0000-000000000000",
+            "m_serialiseFrozen": false,
+            "modelName": "GMRInstanceLayer",
+            "mvc": "1.0",
+            "userdefined_depth": false,
+            "visible": true
+        },
+        {
+            "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
             "name": "Instances",
             "id": "d7887f2d-a60a-4f6e-b778-c8842c40241b",
-            "depth": 100,
+            "depth": 200,
             "grid_x": 20,
             "grid_y": 20,
             "hierarchyFrozen": false,
@@ -70,7 +96,7 @@
             "animationFPS": 15,
             "animationSpeedType": "0",
             "colour": { "Value": 4287514123 },
-            "depth": 200,
+            "depth": 300,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,

@@ -66,6 +66,13 @@ enum BattleActions {
 	rest
 }
 
+enum BattleMonState {
+	attacking,
+	defending,
+	idle,
+	enemy
+}
+
 // Mons
 enum LevelingCurve {
 	fast,

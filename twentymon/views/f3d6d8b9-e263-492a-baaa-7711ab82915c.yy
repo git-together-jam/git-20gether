@@ -10,7 +10,9 @@
         "4a4d5a3d-fcaa-4fa8-a507-78861adf1a58",
         "bf1626bf-d9bc-4fa7-acf1-1231c434ff7a",
         "cf24485f-f273-44a6-85dc-236074968f7d",
-        "887bada7-af80-4e53-9454-5d4f5997e6e2"
+        "887bada7-af80-4e53-9454-5d4f5997e6e2",
+        "b6743045-8bb7-46a4-a8e1-aa712c2b6edd",
+        "05a15a92-fe50-4391-8ddb-73976a4763ed"
     ],
     "filterType": "GMScript",
     "folderName": "Battle System",

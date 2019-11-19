@@ -3,11 +3,11 @@
 
 switch(battleState) {
 	case BattleStates.playerTurn:
-		currentMon.image_blend = c_white;
+		currentMon.state = BattleMonState.idle;
 		break;
 	case BattleStates.enemyTurn:
-		currentMon.image_blend = c_red;
-		targetMon.image_blend = c_white;
+		currentMon.state = BattleMonState.enemy
+		targetMon.state = BattleMonState.idle
 		break;
 	default: break;
 }

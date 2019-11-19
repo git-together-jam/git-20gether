@@ -1,4 +1,12 @@
 /// @desc States
+if(instance_number(obj_player_mon) == 0) {
+	// player lost
+	room_goto(global.OverworldRoom);
+} else if(instance_number(obj_enemy_mon) == 0) {
+	// player won
+	room_goto(global.OverworldRoom);
+}
+
 switch(battleState) {
 	case BattleStates.start: #region Start
 		// Battle start animation (not done)
@@ -15,7 +23,8 @@ switch(battleState) {
 			targetAction = BattleActions.attack;
 		}
 		
-		currentMon.image_blend = c_green; // Placeholder
+		currentMon.state = BattleMonState.attacking;
+		// image_blend = c_green // Placeholder
 		
 		// Action confirm
 		switch(targetAction) {
@@ -23,7 +32,7 @@ switch(battleState) {
 				with(obj_enemy_mon) {
 					// Select attack target
 					if (mouse_hover_object(id)) {
-						image_blend = c_blue; // Placeholder
+						state = BattleMonState.defending; // Placeholder
 						if (mouse_check_button_pressed(mb_left)) {
 							// Start attack die roll
 							obj_battle.targetMon = id;
@@ -31,9 +40,11 @@ switch(battleState) {
 								targetAction = -1;
 								start_die_roll(BattleStates.playerAttackRoll, true);
 							}
-							image_blend = c_red;
+							state = BattleMonState.enemy;
 						}
-					} else image_blend = c_red;
+					} else {
+						state = BattleMonState.enemy;
+					}
 				}
 				break;
 			default:
@@ -55,8 +66,7 @@ switch(battleState) {
 		break;
 		#endregion
 	case BattleStates.playerAttack: #region Player attack
-		var _dmg = calculate_attack_damage();
-		targetMon.hp -= _dmg;
+		battle_do_attack(currentMon, targetMon);
 		next_turn();
 		break;
 		#endregion
@@ -66,8 +76,8 @@ switch(battleState) {
 		targetMon = instance_find(obj_player_mon, 0);
 		
 		// Placeholder
-		currentMon.image_blend = c_green;
-		targetMon.image_blend = c_blue;
+		currentMon.state = BattleMonState.attacking;
+		targetMon.state = BattleMonState.defending;
 		
 		// Enemy AI (not done)
 		if ((waitTimer > 0) && (--waitTimer == 0)) {
@@ -89,8 +99,7 @@ switch(battleState) {
 		break;
 		#endregion
 	case BattleStates.enemyAttack: #region Enemy attack
-		var _dmg = calculate_attack_damage();
-		targetMon.hp -= _dmg;
+		battle_do_attack(currentMon, targetMon);
 		next_turn();
 		break;
 		#endregion
