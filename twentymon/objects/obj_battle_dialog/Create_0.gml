@@ -5,6 +5,7 @@ height = room_height - y;
 width = room_width * 3/4;
 
 fightOptions = ["ATTACK", "DEFEND", "REST"];
+optionsEnabled = [false, false, false];
 padding = 10;
 message = "";
 

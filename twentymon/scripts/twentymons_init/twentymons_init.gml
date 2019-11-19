@@ -19,7 +19,7 @@ var _mon1 = ds_map_create();
 _mon1[? "sprite"] = spr_debog;
 _mon1[? "name"] = "Mon 1";
 _mon1[? "leveling_curve"] = LevelingCurve.medium;
-_mon1[? "type"] = TwentymonType.water
+_mon1[? "type"] = TwentymonType.fire
 
 
 // Stats

@@ -23,8 +23,8 @@ for (var i = 0; i < array_length_1d(_fighters); i++) {
 			strength = _stats[? "strength"];
 			defense = _stats[? "defense"];
 			agility = _stats[? "agility"];
-			hp = _stats[? "max_hp"];
-			stamina = _stats[? "max_stamina"];
+			hp = _stats[? "hp"];
+			stamina = _stats[? "stamina"];
 			partyIndex = _index;
 			
 			isEnemy = false;

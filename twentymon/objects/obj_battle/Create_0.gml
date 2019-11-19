@@ -25,6 +25,9 @@ currentMon = noone;
 targetMon = noone;
 targetAction = -1;
 waitTimer = -1;
+attackStaminaCost = 3;
+defendStaminaCost = 5;
+defenseBoost = 3;
 
 enemies = [];
 fighters = [];

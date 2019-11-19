@@ -12,20 +12,27 @@ draw_set_valign(fa_top);
 line_height = string_height(fightOptions[0]);
 draw_text_ext(padding, y, message, line_height, width - padding);
 
+optionsEnabled = [true, true, true];
 if(obj_battle.currentMon.isEnemy) {
-	draw_set_color(c_gray);	
+	draw_set_color(c_gray);
+	optionsEnabled = [false, false, false];
 }
 
+if(obj_battle.currentMon.stamina < obj_battle.attackStaminaCost) {
+	draw_set_color(c_gray);
+	optionsEnabled[0] = false;
+} else if(optionsEnabled[0]) {
+	draw_set_color(c_black);
+}
 draw_text(width + padding, y + padding, fightOptions[0]);
+if(obj_battle.currentMon.stamina < obj_battle.defendStaminaCost) {
+	draw_set_color(c_gray);
+	optionsEnabled[1] = false;
+} else if(optionsEnabled[1]) {
+	draw_set_color(c_black);
+}
 draw_text(width + padding, y + padding + line_height, fightOptions[1]);
+if(optionsEnabled[2]) {
+	draw_set_color(c_black);
+}
 draw_text(width + padding, y + padding + 2 * line_height, fightOptions[2]);
-
-var _hd = line_height * 3 + padding * 2;
-draw_set_color(c_black);
-draw_rectangle(width + padding, y + padding, room_width, y + _hd, true);
-draw_set_color(c_yellow)
-draw_line(width, y + padding + line_height * 3, room_width, y + padding + line_height * 3);
-draw_set_color(c_red)
-draw_line(width, y + padding + line_height * 2, room_width, y + padding + line_height * 2);
-draw_set_color(c_blue)
-draw_line(width, y + padding + line_height * 1, room_width, y + padding + line_height * 1);

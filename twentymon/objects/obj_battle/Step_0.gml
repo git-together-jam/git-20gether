@@ -26,7 +26,8 @@ switch(battleState) {
 		#endregion
 	
 	case BattleStates.playerTurn: #region Player turn	
-		// Action select (not done)
+		// Action select
+		currentMon.resting = false;
 		battle_dialog_set_message("What will", currentMon.name, "do?");
 		if (obj_battle_dialog.selected_state != noone) {
 			targetAction = obj_battle_dialog.selected_state;
@@ -57,6 +58,19 @@ switch(battleState) {
 					}
 				}
 				break;
+			case BattleActions.defend:
+				battle_dialog_set_message(currentMon.name, "gave up its attack to raise its defenses.");
+				currentMon.defense += 2;
+				targetAction = -1;
+				currentMon.stamina -= defendStaminaCost;
+				next_turn();
+				break;
+			case BattleActions.rest:
+				battle_dialog_set_message(currentMon.name, "gave up its defense roll to restore stamina.");
+				currentMon.stamina = currentMon.max_stamina;
+				targetAction = -1;
+				currentMon.resting = true;
+				next_turn();
 			default:
 				targetAction = -1;
 				break;
@@ -74,6 +88,7 @@ switch(battleState) {
 	case BattleStates.enemyDefenseRoll: #region Enemy defense roll
 		defenseRoll = dieResult;
 		battle_dialog_set_message(currentMon.name, "attacks the enemy", targetMon.name, ".");
+		currentMon.stamina -= attackStaminaCost;
 		battle_change_state(BattleStates.playerAttack);
 		break;
 		#endregion
@@ -103,8 +118,16 @@ switch(battleState) {
 	
 	case BattleStates.enemyAttackRoll: #region Enemy attack roll
 		attackRoll = dieResult;
-		battle_dialog_set_message("Roll for defense. Press |z bump the die.");
-		start_die_roll(BattleStates.playerDefenseRoll, true);
+		if(targetMon.resting) {
+			battle_dialog_set_message(targetMon.name, " gave up its defense to restore stamina. Click to continue");
+			if (mouse_check_button_pressed(mb_left)) {
+				battle_change_state(BattleStates.enemyAttack);
+			}
+			defenseRoll = 0;
+		} else {
+			battle_dialog_set_message("Roll for defense. Press |z bump the die.");
+			start_die_roll(BattleStates.playerDefenseRoll, true);
+		}
 		break;
 		#endregion
 	case BattleStates.playerDefenseRoll: #region Player defense roll
