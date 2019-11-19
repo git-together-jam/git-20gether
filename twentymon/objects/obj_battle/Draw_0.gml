@@ -1,6 +1,6 @@
 /// @desc Debug stuff and info
 draw_set_colour(c_black);
-
+draw_set_font(font);
 draw_set_align(3);
 draw_text(room_width - 5, 5, "Die Result: " + string(dieResult));
 draw_text(room_width - 5, 20, "Attack Roll: " + string(attackRoll));

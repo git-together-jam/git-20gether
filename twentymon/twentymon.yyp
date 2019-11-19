@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "012c5cb7-17db-463d-90b0-413694c79982",
+            "Value": {
+                "id": "d74ad57c-0c91-4a92-9b0c-87cbe80fb060",
+                "resourcePath": "scripts\/battle_dialog_set_message\/battle_dialog_set_message.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "02a1ab39-8f0c-4726-9433-f6524ce3c90f",
             "Value": {
                 "id": "7b90766f-577a-4468-8008-23b45c48024c",
@@ -535,6 +543,14 @@
             }
         },
         {
+            "Key": "770ac6a4-99fd-4504-8c62-1feb1d55dd96",
+            "Value": {
+                "id": "27eeb015-c6d8-4a30-95f8-1a0b88f7fb99",
+                "resourcePath": "sprites\/spr_battle_background\/spr_battle_background.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7bc79a90-4594-48e4-923a-8964dc4f4045",
             "Value": {
                 "id": "d41d6054-d37a-4f54-b169-5d70f7c7b4f0",
@@ -700,6 +716,14 @@
                 "id": "b3875d95-bb86-49f2-bdd2-ed4c4cd6e3d9",
                 "resourcePath": "options\/amazonfire\/options_amazonfire.yy",
                 "resourceType": "GMAmazonFireOptions"
+            }
+        },
+        {
+            "Key": "a148d915-2b98-465e-aeba-ae44137d7cbb",
+            "Value": {
+                "id": "af2ed96f-eeb0-4614-ab60-5a6f84df53be",
+                "resourcePath": "objects\/obj_battle_dialog\/obj_battle_dialog.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1186,6 +1210,7 @@
         "887bada7-af80-4e53-9454-5d4f5997e6e2",
         "b6743045-8bb7-46a4-a8e1-aa712c2b6edd",
         "98acb53f-d873-43a8-9fbc-85be1b2f4933",
+        "012c5cb7-17db-463d-90b0-413694c79982",
         "c19cf893-5642-4341-bc3c-9b050b646b45",
         "02a1ab39-8f0c-4726-9433-f6524ce3c90f",
         "0114b5e8-119f-4c0c-94e8-17e70fbd16a5",

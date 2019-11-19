@@ -22,7 +22,7 @@ for (var i = 0; i < array_length_1d(_enemies); i++) {
 		_stats[? "agility"] += _stat_gain[? "agility"];
 		
 		// Spawn enemy and set its stats
-		with (instance_create_layer(room_width/2, battleY - 40, "Instances", obj_enemy_mon)) {
+		with (instance_create_layer(room_width/2, battleY - BATTLE_MON_OFFSET, "Instances", obj_enemy_mon)) {
 			
 			// Set variables from the ds_map
 			sprite_index = _mon_data[? "sprite"];

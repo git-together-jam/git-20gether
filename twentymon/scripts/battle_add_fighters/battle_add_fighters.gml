@@ -12,7 +12,7 @@ for (var i = 0; i < array_length_1d(_fighters); i++) {
 		var _stats = _mon[? "stats"];
 		
 		// Spawn mon and set its stats
-		with (instance_create_layer(room_width/2, battleY + 40, "Instances", obj_player_mon)) {
+		with (instance_create_layer(room_width/2, battleY + BATTLE_MON_OFFSET, "Instances", obj_player_mon)) {
 			// Set variables from the ds_map
 			sprite_index = _mon_data[? "sprite"];
 			name = _mon_data[? "name"];

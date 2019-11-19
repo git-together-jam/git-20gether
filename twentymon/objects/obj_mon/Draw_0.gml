@@ -1,5 +1,5 @@
 /// @description Draw stats on mouse hover
-
+draw_set_font(obj_battle.font);
 if(state != BattleMonState.idle) {
 	var texture = sprite_get_texture(sprite_index, 0);
 	var h = texture_get_texel_height(texture);

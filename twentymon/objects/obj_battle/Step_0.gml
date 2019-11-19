@@ -11,6 +11,10 @@ if(instance_number(obj_player_mon) == 0 || instance_number(obj_enemy_mon) == 0) 
 	room_goto(global.OverworldRoom);
 }
 
+if(!instance_exists(currentMon)) {
+	next_mon();
+}
+
 switch(battleState) {
 	case BattleStates.start: #region Start
 		// Battle start animation (not done)
@@ -23,22 +27,24 @@ switch(battleState) {
 	
 	case BattleStates.playerTurn: #region Player turn	
 		// Action select (not done)
-		if (keyboard_check_pressed(ord("Z"))) {
-			targetAction = BattleActions.attack;
+		battle_dialog_set_message("What will", currentMon.name, "do?");
+		if (obj_battle_dialog.selected_state != noone) {
+			targetAction = obj_battle_dialog.selected_state;
+			obj_battle_dialog.selected_state = noone;
+			currentMon.state = BattleMonState.attacking;
 		}
-		
-		currentMon.state = BattleMonState.attacking;
-		// image_blend = c_green // Placeholder
 		
 		// Action confirm
 		switch(targetAction) {
 			case BattleActions.attack:
+				battle_dialog_set_message("Who will", currentMon.name, "attack?");
 				with(obj_enemy_mon) {
 					// Select attack target
 					if (mouse_hover_object(id)) {
-						state = BattleMonState.defending; // Placeholder
+						state = BattleMonState.defending;
 						if (mouse_check_button_pressed(mb_left)) {
 							// Start attack die roll
+							battle_dialog_set_message("Roll for attack. Press |z to bump the die.");
 							obj_battle.targetMon = id;
 							with (obj_battle) {
 								targetAction = -1;
@@ -61,11 +67,13 @@ switch(battleState) {
 	
 	case BattleStates.playerAttackRoll: #region Player attack roll
 		attackRoll = dieResult;
+		battle_dialog_set_message("The enemy", targetMon.name, "rolls for defense.");
 		start_die_roll(BattleStates.enemyDefenseRoll, false);
 		break;
 		#endregion
 	case BattleStates.enemyDefenseRoll: #region Enemy defense roll
 		defenseRoll = dieResult;
+		battle_dialog_set_message(currentMon.name, "attacks the enemy", targetMon.name, ".");
 		battle_change_state(BattleStates.playerAttack);
 		break;
 		#endregion
@@ -79,14 +87,15 @@ switch(battleState) {
 	
 		targetMon = instance_find(obj_player_mon, 0);
 		
-		// Placeholder
 		currentMon.state = BattleMonState.attacking;
 		targetMon.state = BattleMonState.defending;
+		battle_dialog_set_message("The enemy", currentMon.name, "attacks", targetMon.name, ".");
 		
 		// Enemy AI (not done)
 		if ((waitTimer > 0) && (--waitTimer == 0)) {
 			waitTimer = -1;
 			start_die_roll(BattleStates.enemyAttackRoll, false);
+			battle_dialog_set_message("The enemy", currentMon.name, "rolls for attack.");
 		}
 		
 		break;
@@ -94,6 +103,7 @@ switch(battleState) {
 	
 	case BattleStates.enemyAttackRoll: #region Enemy attack roll
 		attackRoll = dieResult;
+		battle_dialog_set_message("Roll for defense. Press |z bump the die.");
 		start_die_roll(BattleStates.playerDefenseRoll, true);
 		break;
 		#endregion
@@ -110,6 +120,7 @@ switch(battleState) {
 	
 	case BattleStates.dieRoll: #region Die roll		
 		if (!obj_d20.isRolling) {
+			battle_dialog_set_message("A", floor(obj_d20.number), "was rolled. Click to continue");
 			if (mouse_check_button_pressed(mb_left)) {
 				dieResult = floor(obj_d20.number);
 				switch(nextState) {
