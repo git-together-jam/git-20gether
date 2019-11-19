@@ -1,8 +1,10 @@
 /// @desc Init battle
 
 // Positioning
-battleY = floor(room_height * .5);
+battleY = floor(room_height * .35);
 boardline = floor(room_height * .75);
+instance_create_depth(0, 0, 200, obj_battle_dialog);
+font = draw_get_font();
 
 // States
 battleState = BattleStates.start;
@@ -23,6 +25,10 @@ currentMon = noone;
 targetMon = noone;
 targetAction = -1;
 waitTimer = -1;
+attackStaminaCost = 3;
+defendStaminaCost = 5;
+defenseBoost = 3;
+targetSelected = false;
 
 enemies = [];
 fighters = [];

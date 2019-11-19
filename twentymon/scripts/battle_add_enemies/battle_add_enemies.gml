@@ -22,19 +22,20 @@ for (var i = 0; i < array_length_1d(_enemies); i++) {
 		_stats[? "agility"] += _stat_gain[? "agility"];
 		
 		// Spawn enemy and set its stats
-		with (instance_create_layer(room_width/2, battleY - 40, "Instances", obj_enemy_mon)) {
+		with (instance_create_layer(room_width/2, battleY - BATTLE_MON_OFFSET, "Instances", obj_enemy_mon)) {
 			
 			// Set variables from the ds_map
 			sprite_index = _mon_data[? "sprite"];
 			name = _mon_data[? "name"];
-			type = _mon_data[? "type"];
+			element = _mon_data[? "type"];
+			level = _level;
 			max_hp = _stats[? "max_hp"];
 			max_stamina = _stats[? "max_stamina"];
 			strength = _stats[? "strength"];
 			defense = _stats[? "defense"];
 			agility = _stats[? "agility"];
 			hp = max_hp;
-			stamina = max_stamina;
+			stamina = 2;//max_stamina;
 			
 			// Add the enemy to the priority queue
 			ds_priority_add(obj_battle.twentymon_queue, id, agility);

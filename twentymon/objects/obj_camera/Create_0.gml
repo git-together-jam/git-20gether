@@ -13,3 +13,4 @@ surface_resize(application_surface, view_width, view_height);
 alarm[0] = 1;
 
 follow_target = obj_player;
+snap = true;

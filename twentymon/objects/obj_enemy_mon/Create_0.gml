@@ -4,4 +4,4 @@
 event_inherited();
 
 isEnemy = true;
-image_blend = c_red;
+//image_blend = c_red;

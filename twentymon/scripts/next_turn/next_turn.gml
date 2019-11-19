@@ -2,7 +2,6 @@
 
 // Find starting mon
 currentMon = next_mon();
-		
 // Set turn state
 if (currentMon.isEnemy) {
 	waitTimer = room_speed * 1.5;

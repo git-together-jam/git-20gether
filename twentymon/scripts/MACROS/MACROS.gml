@@ -7,6 +7,7 @@
 #macro TILE_MOVE_SPD 1 
 #macro TILE_JUMP_SPD 3
 #macro JUMP_DIST_ANIM -7
+#macro BATTLE_MON_OFFSET 90
 
 enum Tile_Col {
 	AIR,	
@@ -64,6 +65,13 @@ enum BattleActions {
 	attack,
 	defend,
 	rest
+}
+
+enum BattleMonState {
+	attacking,
+	defending,
+	idle,
+	enemy
 }
 
 // Mons
