@@ -1,7 +1,7 @@
 /// @desc Confirm selection
 switch (menuItems[currentIndex]) {
 case "START":
-    room_goto(rm_house);
+    room_goto(rm_world);
     break;
 case "QUIT":
     game_end();

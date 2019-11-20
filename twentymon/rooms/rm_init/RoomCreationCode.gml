@@ -1,1 +1,1 @@
-room_goto(rm_house);
+room_goto(rm_menu);
