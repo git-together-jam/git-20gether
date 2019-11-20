@@ -2,7 +2,8 @@ battleBegin = global.Save[? "beginBattle"];
 
 if(battleBegin) {
 	partyMons = ds_list_create();
-	selectedMons = [-1, -1];
+	selectedMons = global.SelectedMons;
+	selectedCount = 0;
 	for(var i = 0; i < ds_list_size(global.PlayerParty); i++) {
 		var _mon = ds_map_create();
 		ds_map_copy(_mon, global.PlayerParty[| i]);
@@ -10,13 +11,17 @@ if(battleBegin) {
 		_mon[? "sprite"] = _mon_data[? "sprite"];
 		_mon[? "name"] =_mon_data[? "name"];
 		_mon[? "selected"] = false;
+		if(i == selectedMons[0] || i == selectedMons[1]) {
+			selectedCount ++;
+			_mon[? "selected"] = true;
+		}
 		ds_list_add(partyMons, _mon);
 	}
 	numMons = ds_list_size(partyMons);
 	draw_y = 0;
 	draw_x = room_width / 2;
 	lineHeight = 0;
-	selectedCount = 0;
+	
 } else {
 	battleY = room_height / 4;
 	for (var i = 0; i < array_length_1d(global.SelectedMons); i++) {
