@@ -19,7 +19,7 @@ draw_text(x, y, floor(number));
 draw_set_color(c_white);
 
 if(superBounce) {
-	effect_create_below(ef_star, x, y, 2, $c94c40);
+	effect_create_below(ef_flare, x, y, 1, make_color_rgb(201, 76, 64));
 	superBounce = false;
 }
 

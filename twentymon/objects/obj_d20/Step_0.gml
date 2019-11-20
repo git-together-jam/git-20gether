@@ -5,7 +5,6 @@ if (isRolling) {
 	if (canBump && keyboard_check_pressed(ord("Z")) && bounces > 0) {
 		shouldBump = true;
 		bounces --;
-		minValue = 0;
 		bumpY = y;
 		var _dist = abs(y - boardline);
 		if(_dist < criticalThreshold) {
@@ -29,8 +28,9 @@ if (isRolling) {
 			shouldBump = false;
 			var _dist = abs(bumpY - boardline);
 			if(_dist < criticalThreshold) {
-				minValue = 9 + round((criticalThreshold - _dist) / criticalThreshold * 10);
-				scr_debug(minValue);
+				finalResult = irandom_range(min(_dist * 2 + 10, 17), 19);
+				scr_debug(finalResult);
+				audio_play_sound(snd_click, 11, false);
 			}
 		}
 	}
@@ -52,11 +52,14 @@ if(abs(vsp) < 2 and y > boardline - 6){
 	vsp = 0;
 	image_speed = 0;
 	isRolling = false
+	if(finalResult > 0) {
+		number = finalResult;
+	}
 }
 
 // Animation
 image_speed = approach(image_speed, 0, .01)
 numspeed = image_speed / 15;
 
-number = (number + numspeed) % (20 - minValue) + minValue;
+number = (number + numspeed) % 20;
 if (number == 0) number = 20;
