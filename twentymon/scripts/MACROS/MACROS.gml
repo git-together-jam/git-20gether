@@ -7,7 +7,10 @@
 #macro TILE_MOVE_SPD 1 
 #macro TILE_JUMP_SPD 3
 #macro JUMP_DIST_ANIM -7
+// Battle Specific
 #macro BATTLE_MON_OFFSET 90
+#macro MAX_FRIENDLY_MONS 2
+#macro MAX_ENEMY_MONS 3
 
 enum Tile_Col {
 	AIR,	

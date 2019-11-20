@@ -1,5 +1,5 @@
 /// @description Draw stats on mouse hover
-draw_set_font(obj_battle.font);
+
 if(state != BattleMonState.idle) {
 	var texture = sprite_get_texture(sprite_index, 0);
 	var h = texture_get_texel_height(texture);
@@ -27,11 +27,11 @@ if(hp <= 0) {
 	image_xscale -= 0.03;
 	image_yscale -= 0.03;
 	image_angle += 4;
-} else {
+} else if(hp > 0 || room == rm_battle_lobby) {
 	// Draw health bar
 	draw_set_color(c_black);
 	var _x = x - 50;
-	var _y = y + (sprite_height / 2 + 20) * (isEnemy ? -1 : 1);
+	var _y = y + (sprite_height / 2 + 20) * ((isEnemy || room==rm_battle_lobby) ? -1 : 1);
 	var _hp = max(hp / max_hp, 0);
 	draw_rectangle(_x - 1, _y - 1, _x + 101, _y + 6, false);
 	if(_hp > 0.5) {

@@ -8,4 +8,6 @@ global.PlayerParty = ds_list_create();
 party_add_twentymon(TwentymonId.mon1, 1);
 party_add_twentymon(TwentymonId.mon1, 2);
 
-global.OverworldRoom = rm_house;
+global.Save = ds_map_create();
+global.SelectedMons = [-1, -1];
+global.EnemyMons = [];

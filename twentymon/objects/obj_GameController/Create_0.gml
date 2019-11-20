@@ -17,3 +17,13 @@ part_type_speed(global.BattleMonParticle, 3, 4, -0.10, 0);
 part_type_direction(global.BattleMonParticle, 0, 360, 0, 20);
 part_type_blend(global.BattleMonParticle, false);
 part_type_life(global.BattleMonParticle, 15, 25);
+
+global.LevelUpParticle = part_type_create();
+part_type_shape(global.LevelUpParticle, pt_shape_flare);
+part_type_size(global.LevelUpParticle, 0.1, 0.2, 0, 0.5);
+part_type_color1(global.LevelUpParticle, c_aqua)
+part_type_alpha2(global.LevelUpParticle, 0.5, 0);
+part_type_speed(global.LevelUpParticle, 3, 5, -0.10, 0);
+part_type_direction(global.LevelUpParticle, 80, 100, 0, 10);
+part_type_blend(global.LevelUpParticle, false);
+part_type_life(global.LevelUpParticle, 25, 45);

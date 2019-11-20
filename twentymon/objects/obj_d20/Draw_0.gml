@@ -1,5 +1,7 @@
 /// @description Die and die shadow
 
+draw_set_font(global.SmallFont);
+
 // Draw shadow
 draw_set_color(c_black);
 draw_set_alpha(0.2);

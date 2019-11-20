@@ -30,5 +30,6 @@ defendStaminaCost = 5;
 defenseBoost = 3;
 targetSelected = false;
 
-enemies = [];
-fighters = [];
+enemies = global.EnemyMons;
+fighters = global.SelectedMons;
+event_user(0);
