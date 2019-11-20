@@ -119,6 +119,14 @@
             }
         },
         {
+            "Key": "0ca81f59-f6a0-4e1e-9442-9eb8e91a1cc8",
+            "Value": {
+                "id": "8c3325bc-beb9-4d28-a941-3b2eb47ac9f1",
+                "resourcePath": "objects\\obj_battle_trigger\\obj_battle_trigger.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0fc7b9ee-8271-41cc-ad87-584bdcb74c19",
             "Value": {
                 "id": "14cbc840-5d74-4336-96db-11ff34058e4b",
@@ -772,6 +780,14 @@
                 "id": "53174c59-2425-4bd6-a542-78c1f3359109",
                 "resourcePath": "datafiles_yy\/Monster_Twenty.otf.yy",
                 "resourceType": "GMIncludedFile"
+            }
+        },
+        {
+            "Key": "93053ddb-e078-4c3a-b558-d7a3bfcb9a63",
+            "Value": {
+                "id": "0a8cd50e-b7ca-42c4-8106-481dc9c571f5",
+                "resourcePath": "sprites\\spr_purple\\spr_purple.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
