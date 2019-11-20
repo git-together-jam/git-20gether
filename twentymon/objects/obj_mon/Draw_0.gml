@@ -14,12 +14,11 @@ if(state != BattleMonState.idle) {
 } else {
 	draw_self();
 }
-
 if(deltaHP > 0) {
 	hp --;
 	deltaHP --;
 }
-if(hp <= 0) {
+if(hp <= 0 && room == rm_battle) {
 	if(image_alpha <= 0) {
 		instance_destroy();
 	}

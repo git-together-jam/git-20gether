@@ -2,8 +2,14 @@
 
 if (isRolling) {
 	// Table bumps
-	if (canBump && keyboard_check_pressed(ord("Z"))) {
+	if (canBump && keyboard_check_pressed(ord("Z")) && bounces > 0) {
 		shouldBump = true;
+		bounces --;
+		bumpY = y;
+		var _dist = abs(y - boardline);
+		if(_dist < criticalThreshold) {
+			superBounce = true;
+		}
 	}
 	
 	// Gravity and movement
@@ -13,12 +19,19 @@ if (isRolling) {
 		// Bounce back
 		vsp *= -0.7;
 		hsp *= 0.5;
+		audio_play_sound(snd_die_bounce, 10, false);
 		
 		if (shouldBump) {
 			image_speed = 2;
 			vsp = max(vsp - 5, -8);
 			hsp = irandom_range(2, 4) * choose(-1, 1);
 			shouldBump = false;
+			var _dist = abs(bumpY - boardline);
+			if(_dist < criticalThreshold) {
+				finalResult = irandom_range(min(_dist * 2 + 10, 17), 19);
+				scr_debug(finalResult);
+				audio_play_sound(snd_click, 11, false);
+			}
 		}
 	}
 	
@@ -39,6 +52,9 @@ if(abs(vsp) < 2 and y > boardline - 6){
 	vsp = 0;
 	image_speed = 0;
 	isRolling = false
+	if(finalResult > 0) {
+		number = finalResult;
+	}
 }
 
 // Animation

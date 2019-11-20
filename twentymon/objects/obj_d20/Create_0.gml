@@ -18,3 +18,8 @@ numspeed = image_speed / 20;
 // Table bumps
 canBump = true;
 shouldBump = false;
+criticalThreshold = 7;
+bounces = 2;
+superBounce = false;
+bumpY = y;
+finalResult = -1;

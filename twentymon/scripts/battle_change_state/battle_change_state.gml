@@ -11,6 +11,6 @@ switch(battleState) {
 		break;
 	default: break;
 }
-
+waitTimer = timerLength;
 previousState = battleState;
 battleState = argument0;
