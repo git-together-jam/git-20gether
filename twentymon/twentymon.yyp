@@ -610,7 +610,7 @@
             "Key": "7a6aaf4a-951d-40dd-acbb-85b7fac19ed6",
             "Value": {
                 "id": "04e6cae2-dde3-4889-a864-249f3ac9497e",
-                "resourcePath": "sounds\/snd_die_hit\/snd_die_hit.yy",
+                "resourcePath": "sounds\/snd_die_bounce\/snd_die_bounce.yy",
                 "resourceType": "GMSound"
             }
         },

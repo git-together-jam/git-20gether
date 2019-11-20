@@ -2,7 +2,8 @@ if(battleBegin) {
 	if(mouse_x > draw_x && mouse_y > draw_y - lineHeight / 2 && mouse_y < draw_y + numMons * lineHeight - lineHeight / 2) {
 		var _index = floor((mouse_y - (draw_y - lineHeight / 2)) / lineHeight);
 		var _mon = partyMons[| _index];
-		if(_mon[? "selected"] == false && selectedCount <= MAX_FRIENDLY_MONS) {
+		var _stats = _mon[? "stats"];
+		if(_mon[? "selected"] == false && _stats[ "hp"] > 0 && _stats[? "stamina"] > 0 && selectedCount <= MAX_FRIENDLY_MONS) {
 			_mon[? "selected"] = true;
 			for(var i = 0; i < array_length_1d(selectedMons); i++) {
 				if(selectedMons[i] == -1) {

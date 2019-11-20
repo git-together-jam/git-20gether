@@ -11,9 +11,14 @@ if(battleBegin) {
 		_mon[? "sprite"] = _mon_data[? "sprite"];
 		_mon[? "name"] =_mon_data[? "name"];
 		_mon[? "selected"] = false;
-		if(i == selectedMons[0] || i == selectedMons[1]) {
-			selectedCount ++;
-			_mon[? "selected"] = true;
+		var _stats = _mon[? "stats"];
+		for(var j = 0; j < MAX_FRIENDLY_MONS; j++) {
+			if(i == selectedMons[j] && _stats[? "hp"] > 0 && _stats[? "stamina"] > 0) {
+				selectedCount ++;
+				_mon[? "selected"] = true;
+			} else {
+				selectedMons[j] = -1;
+			}
 		}
 		ds_list_add(partyMons, _mon);
 	}

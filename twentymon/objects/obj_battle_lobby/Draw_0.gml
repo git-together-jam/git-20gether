@@ -38,7 +38,9 @@ if(battleBegin) {
 		} else {
 			draw_set_color(c_red);
 		}
-		draw_rectangle(_x, _y, _x + 100 * _hp, _y + 5, false);
+		if(_hp > 0) {
+			draw_rectangle(_x, _y, _x + 100 * _hp, _y + 5, false);
+		}
 		var _scale = lineHeight / 64;
 		draw_sprite_ext(_mon[? "sprite"], 0, room_width / 2, draw_y + lineHeight * i, _scale, _scale, 0, -1, 1);
 		
