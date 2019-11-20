@@ -22,6 +22,8 @@ if(_leveling_curve == LevelingCurve.fast) {
 	_mon[? "xp"] = _level3 * 5/4;
 }
 
+_mon[? "xp_gained"] = 0;
+
 // Stats
 var _stats = ds_map_create();
 ds_map_copy(_stats, _mon_data[? "base_stats"]);
@@ -32,7 +34,6 @@ _stats[? "max_stamina"] += _stat_gain[? "max_stamina"];
 _stats[? "strength"] += _stat_gain[? "strength"];
 _stats[? "defense"] += _stat_gain[? "defense"];
 _stats[? "agility"] += _stat_gain[? "agility"];
-
 _stats[? "hp"] = _stats[? "max_hp"];
 _stats[? "stamina"] = _stats[? "max_stamina"];
 

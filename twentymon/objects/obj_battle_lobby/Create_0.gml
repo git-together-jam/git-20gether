@@ -28,6 +28,8 @@ if(battleBegin) {
 	lineHeight = 0;
 	
 } else {
+	newMon = global.Save[? "gotMon"];
+	global.Save[? "gotMon"] = false;
 	battleY = room_height / 4;
 	for (var i = 0; i < array_length_1d(global.SelectedMons); i++) {
 		var _index = global.SelectedMons[i];

@@ -13,6 +13,12 @@ if(instance_number(obj_player_mon) == 0 || instance_number(obj_enemy_mon) == 0) 
 			// trigger stats cleanup
 			instance_destroy();
 		}
+		if(global.Save[? "wildBattle"] && random(1) > 0.5 && array_length_1d(enemies) > 0) {
+			var _mon = enemies[0];
+			party_add_twentymon(_mon[0], _mon[1]);
+			global.Save[? "gotMon"] = true;
+			scr_debug("got mon");
+		}
 	}
 	global.Save[? "beginBattle"] = false;
 	room_goto(rm_battle_lobby);

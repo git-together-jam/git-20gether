@@ -30,6 +30,20 @@ for(var i = 0; i < instance_number(obj_npc); i++) {
 	}
 }
 
+for(var i = 0; i < instance_number(obj_battle_trigger); i++) {
+	var _pad = instance_find(obj_battle_trigger, i);
+	var _pad_data;
+	if(_new_save) {
+		_pad_data = ds_map_create();	
+	} else {
+		_pad_data = _room_data[? _pad];
+	}
+	_pad_data[? "dead"] = _pad.dead;
+	if(_new_save) {
+		ds_map_add_map(_room_data, _pad, _pad_data);
+	}
+}
+scr_debug(room);
 global.Save[? "lastOverworldRoom"] = room;
 global.Save[? "beginBattle"] = _begin_battle;
 
