@@ -11,9 +11,14 @@ if(battleBegin) {
 		_mon[? "sprite"] = _mon_data[? "sprite"];
 		_mon[? "name"] =_mon_data[? "name"];
 		_mon[? "selected"] = false;
-		if(i == selectedMons[0] || i == selectedMons[1]) {
-			selectedCount ++;
-			_mon[? "selected"] = true;
+		var _stats = _mon[? "stats"];
+		for(var j = 0; j < MAX_FRIENDLY_MONS; j++) {
+			if(i == selectedMons[j] && _stats[? "hp"] > 0 && _stats[? "stamina"] > 0) {
+				selectedCount ++;
+				_mon[? "selected"] = true;
+			} else {
+				selectedMons[j] = -1;
+			}
 		}
 		ds_list_add(partyMons, _mon);
 	}
@@ -34,7 +39,7 @@ if(battleBegin) {
 		// Get data from the twentymon
 		var _mon_data = global.Twentymons[? _mon[? "ID"]];
 		var _stats = _mon[? "stats"];
-		
+		xpGained = [0, 0];
 		// Spawn mon and set its stats
 		with (instance_create_layer(room_width/2, battleY + BATTLE_MON_OFFSET, "Instances", obj_player_mon)) {
 			// Set variables from the ds_map
@@ -53,10 +58,11 @@ if(battleBegin) {
 			
 			isEnemy = false;
 			x = (room_width/(array_length_1d(global.SelectedMons) + 1)) * (i + 1);
+			obj_battle_lobby.xpGained[i] = _mon[? "xp_gained"];
 		}
 	}
 	leveledUp = [false, false];
-	xpGained = [0, 0];
+	
 	alarm[0] = room_speed * 5;
 
 	layer_set_visible("Background_Image", true);
