@@ -4,7 +4,7 @@
 battleY = floor(room_height * .35);
 boardline = floor(room_height * .75);
 instance_create_depth(0, 0, 200, obj_battle_dialog);
-font = draw_get_font();
+timerLength = room_speed * 1.5;
 
 // States
 battleState = BattleStates.start;
@@ -33,3 +33,4 @@ targetSelected = false;
 enemies = global.EnemyMons;
 fighters = global.SelectedMons;
 event_user(0);
+music = audio_play_sound(snd_batte_theme_funny, 20, true);

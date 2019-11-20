@@ -9,7 +9,7 @@ for(var i = 0; i < array_length_1d(global.SelectedMons); i++) {
 	var _new_level = twentymon_get_level(_mon);
 	if(_new_level != _level) {
 		leveledUp[i] = true;
-		alarm[1] = room_speed / 2;
+		alarm[1] = room_speed * 3;
 		var _stat_gain = twentymon_get_stat_gain(_mon[? "ID"]);
 		var _stats = _mon[? "stats"];
 		_stats[? "max_hp"] += _stat_gain[? "max_hp"];
@@ -19,5 +19,8 @@ for(var i = 0; i < array_length_1d(global.SelectedMons); i++) {
 		_stats[? "strength"] += _stat_gain[? "strength"];
 		_stats[? "defense"] += _stat_gain[? "defense"];
 		_stats[? "agility"] += _stat_gain[? "agility"];
+		if(!audio_is_playing(snd_levelup)) {
+			audio_play_sound(snd_levelup, 10, false);
+		}
 	}
 }

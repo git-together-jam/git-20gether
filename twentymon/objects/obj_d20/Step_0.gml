@@ -13,6 +13,7 @@ if (isRolling) {
 		// Bounce back
 		vsp *= -0.7;
 		hsp *= 0.5;
+		audio_play_sound(snd_die_bounce, 10, false);
 		
 		if (shouldBump) {
 			image_speed = 2;

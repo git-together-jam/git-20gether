@@ -71,18 +71,39 @@ switch(battleState) {
 				}
 				break;
 			case BattleActions.defend:
-				scr_debug("defend");
-				battle_dialog_set_message(currentMon.name, "gave up its attack to raise its defenses.");
-				currentMon.defense += defenseBoost;
-				targetAction = -1;
-				currentMon.stamina -= defendStaminaCost;
-				next_turn();
+				battle_dialog_set_message("Who will", currentMon.name, "defend?");
+				with(obj_player_mon) {
+					// Select attack target
+					if (mouse_hover_object(id)) {
+						state = BattleMonState.defending;
+						if (mouse_check_button_pressed(mb_left)) {
+							// Buff defense
+							defense += obj_battle.defenseBoost;
+							with (obj_battle) {
+								battle_dialog_set_message(currentMon.name, "gave up its attack to raise the defense of a friendly Twentymon.");
+								targetAction = -1;
+								currentMon.stamina -= defendStaminaCost;
+								audio_play_sound(snd_buff, 10, false);
+								next_turn();
+							}
+							state = BattleMonState.enemy;
+						}
+					} else {
+						state = BattleMonState.enemy;
+					}
+				}
+				//battle_dialog_set_message(currentMon.name, "gave up its attack to raise its defenses.");
+				//currentMon.defense += defenseBoost;
+				//targetAction = -1;
+				//currentMon.stamina -= defendStaminaCost;
+				//next_turn();
 				break;
 			case BattleActions.rest:
 				battle_dialog_set_message(currentMon.name, "gave up its defense roll to restore stamina.");
 				currentMon.stamina = currentMon.max_stamina;
 				targetAction = -1;
 				currentMon.resting = true;
+				audio_play_sound(snd_rest, 10, false);
 				next_turn();
 			default:
 				targetAction = -1;
@@ -119,28 +140,14 @@ switch(battleState) {
 			targetMon.state = BattleMonState.defending;
 			targetSelected = true;
 			if(currentMon.stamina < attackStaminaCost) {
-				battle_dialog_set_message("The enemy", currentMon.name, " tried to attack ", targetMon.name, ", but it's out of stamina, so it hit itself instead.");	
+				battle_dialog_set_message("The enemy", currentMon.name, "tried to attack", targetMon.name, ", but it's out of stamina, so it hit itself instead.");	
 			} else {
 				battle_dialog_set_message("The enemy", currentMon.name, "attacks", targetMon.name, ".");
 			}
 		}
 		
-		// Enemy AI (not done)
-		if ((waitTimer > 0) && (--waitTimer == 0)) {
-			
-			//if(currentMon.stamina < attackStaminaCost) {
-			//	battle_dialog_set_message("The enemy", currentMon.name, "tried to attack, but it didn't have enough stamina. It hurt itself instead.");
-			//	var _dmg = round(currentMon.hp / 5);
-			//	currentMon.deltaHP += _dmg;
-			//	if(currentMon.hp - currentMon.deltaHP <= 0) {
-			//		currentMon.deltaHP = currentMon.hp - 2;
-			//	}
-			//	next_turn();
-				
-			//} else {
-			//	currentMon.stamina -= attackStaminaCost;
-			//	start_die_roll(BattleStates.enemyAttackRoll, false);
-			//}
+		// Enemy AI
+		if (battle_timer_wait()) {
 			currentMon.stamina -= attackStaminaCost;
 			start_die_roll(BattleStates.enemyAttackRoll, false);
 			waitTimer = -1;
@@ -193,7 +200,7 @@ switch(battleState) {
 					break;
 				}
 				instance_destroy(obj_d20);
-				battle_change_state(nextState)
+				battle_change_state(nextState);
 			}
 		}
 		break;
