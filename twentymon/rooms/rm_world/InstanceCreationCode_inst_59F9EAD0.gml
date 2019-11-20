@@ -1,0 +1,1 @@
+message = "This building is closed for renovations. Please come back in March to see our lovely interiors";

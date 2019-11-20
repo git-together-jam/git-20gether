@@ -27,7 +27,9 @@
         "b1e4b38c-0134-4e44-b1a8-86db5136218d",
         "ec86d298-572d-4c5e-8101-be14eea77099",
         "b531fa5f-e1ae-4a3c-8422-8c700d88ef70",
-        "2ba3cf4c-21f2-4ba9-9610-2ee059d2d32d"
+        "2ba3cf4c-21f2-4ba9-9610-2ee059d2d32d",
+        "51544c74-8d90-4048-8524-fe87f10aa27c",
+        "0452791f-6655-4e8c-ae50-e4ee371f1303"
     ],
     "filterType": "GMSprite",
     "folderName": "Twentymons",
