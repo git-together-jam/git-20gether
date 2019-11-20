@@ -12,7 +12,7 @@ if(_target.hp - _dmg < 0) {
 	if(_source.object_index == obj_player_mon) {
 		_source.xp_gained += twentymon_gain_xp(_source, _target);
 	}
-		
+	audio_play_sound(snd_faint, 10, false);
 		
 }
 var _inst = instance_create_layer(_source.x, _source.y, "Battle_Effects", obj_battle_effect);

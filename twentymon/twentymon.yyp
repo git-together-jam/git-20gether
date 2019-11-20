@@ -463,6 +463,14 @@
             }
         },
         {
+            "Key": "55f5b3ee-1e29-4456-83c2-7c0fb823f542",
+            "Value": {
+                "id": "ef8806a3-2ce2-47c8-a319-ac1d7d616498",
+                "resourcePath": "sounds\/snd_faint\/snd_faint.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "59c118ee-814b-4064-979d-7445e791d272",
             "Value": {
                 "id": "eb55757f-50c4-4269-84a1-ed69472d479a",
