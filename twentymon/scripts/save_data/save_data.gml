@@ -46,6 +46,11 @@ for(var i = 0; i < instance_number(obj_battle_trigger); i++) {
 scr_debug(room);
 global.Save[? "lastOverworldRoom"] = room;
 global.Save[? "beginBattle"] = _begin_battle;
+if(instance_exists(obj_player)) {
+	global.Save[? "px"] = obj_player.x;
+	global.Save[? "py"] = obj_player.y;
+
+}
 
 if(_new_save) {
 	ds_map_add_map(global.Save, room, _room_data);

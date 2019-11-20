@@ -19,3 +19,6 @@ for(var i = 0; i < instance_number(obj_battle_trigger); i++) {
 }
 
 global.Save[? "wildBattle"] = false;
+if(!instance_exists(obj_player)) {
+	instance_create_depth(global.Save[? "px"], global.Save[?"py"], 0, obj_player);
+}
