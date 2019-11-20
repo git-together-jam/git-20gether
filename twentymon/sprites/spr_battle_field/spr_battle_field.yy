@@ -29,25 +29,11 @@
             },
             "images": [
                 {
-                    "id": "8a079e2f-bb9a-497c-b582-be88fe8dad51",
+                    "id": "4d861352-08bb-441a-a603-07fec1e548df",
                     "modelName": "GMSpriteImage",
                     "mvc": "1.0",
                     "FrameId": "6dd4b624-1d28-4c72-bf08-f58710611700",
-                    "LayerId": "b77ce393-d4de-4033-8383-a50cfbb6b6b0"
-                },
-                {
-                    "id": "0d2e1d35-e6cc-4513-9842-9ec31a0842a3",
-                    "modelName": "GMSpriteImage",
-                    "mvc": "1.0",
-                    "FrameId": "6dd4b624-1d28-4c72-bf08-f58710611700",
-                    "LayerId": "06cac9c3-9aa8-40dd-89ff-a77e58d7a704"
-                },
-                {
-                    "id": "54ec3a9e-7108-40e7-a6fa-ffa67eb8a0f4",
-                    "modelName": "GMSpriteImage",
-                    "mvc": "1.0",
-                    "FrameId": "6dd4b624-1d28-4c72-bf08-f58710611700",
-                    "LayerId": "c98d1a85-ea47-494a-9cc2-7d54da709ef2"
+                    "LayerId": "2b9d19b3-9105-47c7-ae27-365c954833f3"
                 }
             ]
         }
@@ -57,35 +43,13 @@
     "height": 480,
     "layers": [
         {
-            "id": "b77ce393-d4de-4033-8383-a50cfbb6b6b0",
+            "id": "2b9d19b3-9105-47c7-ae27-365c954833f3",
             "modelName": "GMImageLayer",
             "mvc": "1.0",
             "SpriteId": "da92a5d9-3907-4e9c-9912-41841191e194",
             "blendMode": 0,
             "isLocked": false,
-            "name": "detail",
-            "opacity": 100,
-            "visible": true
-        },
-        {
-            "id": "06cac9c3-9aa8-40dd-89ff-a77e58d7a704",
-            "modelName": "GMImageLayer",
-            "mvc": "1.0",
-            "SpriteId": "da92a5d9-3907-4e9c-9912-41841191e194",
-            "blendMode": 0,
-            "isLocked": false,
-            "name": "default",
-            "opacity": 100,
-            "visible": true
-        },
-        {
-            "id": "c98d1a85-ea47-494a-9cc2-7d54da709ef2",
-            "modelName": "GMImageLayer",
-            "mvc": "1.0",
-            "SpriteId": "da92a5d9-3907-4e9c-9912-41841191e194",
-            "blendMode": 0,
-            "isLocked": false,
-            "name": "background",
+            "name": "Background",
             "opacity": 100,
             "visible": true
         }

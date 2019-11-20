@@ -54,7 +54,7 @@ if(battleBegin) {
 	xpGained = [0, 0];
 	alarm[0] = room_speed * 5;
 
-	layer_background_sprite(layer_get_id("Background"), spr_battle_field);	
+	layer_set_visible("Background_Image", true);
 }
 
 
