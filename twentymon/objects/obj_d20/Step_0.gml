@@ -2,8 +2,15 @@
 
 if (isRolling) {
 	// Table bumps
-	if (canBump && keyboard_check_pressed(ord("Z"))) {
+	if (canBump && keyboard_check_pressed(ord("Z")) && bounces > 0) {
 		shouldBump = true;
+		bounces --;
+		minValue = 0;
+		bumpY = y;
+		var _dist = abs(y - boardline);
+		if(_dist < criticalThreshold) {
+			superBounce = true;
+		}
 	}
 	
 	// Gravity and movement
@@ -20,6 +27,11 @@ if (isRolling) {
 			vsp = max(vsp - 5, -8);
 			hsp = irandom_range(2, 4) * choose(-1, 1);
 			shouldBump = false;
+			var _dist = abs(bumpY - boardline);
+			if(_dist < criticalThreshold) {
+				minValue = 9 + round((criticalThreshold - _dist) / criticalThreshold * 10);
+				scr_debug(minValue);
+			}
 		}
 	}
 	
@@ -46,5 +58,5 @@ if(abs(vsp) < 2 and y > boardline - 6){
 image_speed = approach(image_speed, 0, .01)
 numspeed = image_speed / 15;
 
-number = (number + numspeed) % 20;
+number = (number + numspeed) % (20 - minValue) + minValue;
 if (number == 0) number = 20;

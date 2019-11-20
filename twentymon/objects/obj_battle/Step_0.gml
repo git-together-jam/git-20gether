@@ -133,7 +133,7 @@ switch(battleState) {
 		#endregion
 	
 	case BattleStates.enemyTurn: #region Enemy turn
-		if(!targetSelected) {
+		if(!targetSelected || !instance_exists(targetMon)) {
 			var _player_mon_count = instance_number(obj_player_mon);
 			targetMon = instance_find(obj_player_mon, irandom_range(0, _player_mon_count - 1));
 			currentMon.state = BattleMonState.attacking;
