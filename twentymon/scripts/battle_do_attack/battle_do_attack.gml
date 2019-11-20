@@ -9,12 +9,10 @@ _target.deltaHP += _dmg;
 if(_target.hp - _dmg < 0) {
 	ds_priority_delete_value(obj_battle.twentymon_buffer, _target);
 	ds_priority_delete_value(obj_battle.twentymon_queue, _target);
-	with(_source) {
-		if(object_index == obj_player_mon) {
-			xp_gained += twentymon_gain_xp(self, _target);
-		}
+	if(_source.object_index == obj_player_mon) {
+		_source.xp_gained += twentymon_gain_xp(_source, _target);
 	}
-		
+	audio_play_sound(snd_faint, 10, false);
 		
 }
 var _inst = instance_create_layer(_source.x, _source.y, "Battle_Effects", obj_battle_effect);
@@ -34,3 +32,4 @@ switch(_source.element) {
 
 _inst.image_blend = _color;
 _inst.element = _source.element;
+_inst.damage = _dmg;
