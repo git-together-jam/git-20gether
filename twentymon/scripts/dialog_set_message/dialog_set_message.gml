@@ -8,6 +8,7 @@ if(argument_count == 2) {
 }
 
 var _str = monster_transform_string(argument[0]);
+draw_set_font(global.SmallFont);
 dialog_init();
 with(obj_dialog_controller) {
 	line_height = string_height("I") - 5;

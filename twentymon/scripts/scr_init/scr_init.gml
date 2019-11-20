@@ -5,7 +5,9 @@ randomize();
 twentymons_init();
 // Party
 global.PlayerParty = ds_list_create();
-party_add_twentymon(TwentymonId.mon1, 1);
-party_add_twentymon(TwentymonId.mon1, 2);
+party_add_twentymon(TwentymonId.mon1, 10);
+party_add_twentymon(TwentymonId.mon1, 50);
 
-global.OverworldRoom = rm_house;
+global.Save = ds_map_create();
+global.SelectedMons = [-1, -1];
+global.EnemyMons = [];

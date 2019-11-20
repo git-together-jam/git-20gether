@@ -4,6 +4,9 @@
 var _fighters = argument0;
 for (var i = 0; i < array_length_1d(_fighters); i++) {
 		var _index = _fighters[i];
+		if(_index == -1) {
+			continue;
+		}
 		var _mon = global.PlayerParty[| _index];
 		
 		// Get data from the twentymon
@@ -27,7 +30,7 @@ for (var i = 0; i < array_length_1d(_fighters); i++) {
 			partyIndex = _index;
 			
 			isEnemy = false;
-			
+
 			// Add the mon to the priority queue
 			ds_priority_add(obj_battle.twentymon_queue, id, agility);
 		}

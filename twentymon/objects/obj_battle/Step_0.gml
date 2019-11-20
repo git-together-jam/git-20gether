@@ -1,4 +1,11 @@
 /// @desc States
+
+if(ds_priority_empty(twentymon_queue) && ds_priority_empty(twentymon_buffer)) {
+	if(instance_number(obj_player_mon) != 0 || instance_number(obj_enemy_mon) != 0) {
+		exit;
+	}
+}
+
 if(instance_number(obj_player_mon) == 0 || instance_number(obj_enemy_mon) == 0) {
 	var _win = instance_number(obj_enemy_mon) == 0;
 	if(_win) {
@@ -7,12 +14,16 @@ if(instance_number(obj_player_mon) == 0 || instance_number(obj_enemy_mon) == 0) 
 			instance_destroy();
 		}
 	}
-	
-	room_goto(global.OverworldRoom);
+	global.Save[? "beginBattle"] = false;
+	room_goto(rm_battle_lobby);
 }
 
 if(!instance_exists(currentMon)) {
-	next_mon();
+	// this hack lets the player win the game, so that's good
+	currentMon = next_mon();
+	if(!instance_exists(currentMon)) {
+		exit;
+	}
 }
 
 switch(battleState) {
