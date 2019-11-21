@@ -108,7 +108,7 @@
     "layers": [
         {
             "__type": "GMRTileLayer_Model:#YoYoStudio.MVCFormat",
-            "name": "Collisisons",
+            "name": "Collisions",
             "id": "b5fae56b-e4c0-4bc6-aa2d-7f15178f5302",
             "depth": 0,
             "grid_x": 32,
