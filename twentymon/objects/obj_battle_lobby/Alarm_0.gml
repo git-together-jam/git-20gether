@@ -1,7 +1,8 @@
 /// @description Add XP to mons
 
 for(var i = 0; i < array_length_1d(global.SelectedMons); i++) {
-	var _mon = global.PlayerParty[| i];
+	var _index = global.SelectedMons[i];
+	var _mon = global.PlayerParty[| _index];
 	var _level = twentymon_get_level(_mon);
 	_mon[? "xp"] += _mon[? "xp_gained"];
 	xpGained[i] = _mon[? "xp_gained"];

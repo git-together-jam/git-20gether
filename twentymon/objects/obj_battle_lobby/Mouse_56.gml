@@ -37,7 +37,8 @@ if(point_in_rectangle(mouse_x, mouse_y, room_width / 2 - 100, room_height - 125,
 	if(battleBegin && selectedCount > 0) {
 		global.SelectedMons = selectedMons;
 		room_goto(rm_battle);
-	} else if(!battleBegin){
+	} else if(!battleBegin) {
+		scr_debug(global.Save[? "lastOverworldRoom"]);
 		room_goto(global.Save[? "lastOverworldRoom"]);
 	}
 }
