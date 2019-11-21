@@ -3,8 +3,8 @@
 
 // Tile Specific
 #macro TILE_SIZE 20
-#macro TILE_MOVE_SIZE 10
-#macro TILE_MOVE_SPD 1 
+#macro TILE_MOVE_SIZE 20
+#macro TILE_MOVE_SPD 1
 #macro TILE_JUMP_SPD 3
 #macro JUMP_DIST_ANIM -7
 // Battle Specific
@@ -30,7 +30,7 @@ enum Tile_Col {
 #macro KEY_JUMP global.keyboard_jump
 #macro KEY_SPRINT global.keyboard_sprint
 
-#macro MAX_KEYS_HELD 8
+#macro MAX_KEYS_HELD 1
 
 // Character
 enum Facing {
