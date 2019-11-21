@@ -1,0 +1,1 @@
+enemyMons = [[TwentymonId.mountain, 3]];

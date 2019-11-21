@@ -76,6 +76,13 @@ if(battleBegin) {
 	
 	
 } else {
+	if(newMon) {
+		draw_set_font(global.MainFont);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_center);
+		draw_set_color(c_black);
+		draw_text(room_width / 2, 25, monster_transform_string("You captured the wild Twentmon!"));
+	}
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
 	draw_set_font(global.SmallFont);

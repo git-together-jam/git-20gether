@@ -16,6 +16,8 @@ if(!moving && character_can_move()) {
 				_prompts = _inst.prompts;
 				_followups = _inst.followups;
 			}
+		} else if(object_index == obj_heal_machine) {
+			twentymons_heal_party();
 		}
 	}
 	if(_inst != noone) {
